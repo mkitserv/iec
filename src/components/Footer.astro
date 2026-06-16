@@ -1,0 +1,47 @@
+---
+import { company, nav } from '../lib/site';
+const year = 2026;
+---
+<footer class="relative overflow-hidden ink-gradient text-white/70">
+  <div class="absolute inset-0 blueprint opacity-50"></div>
+  <div class="container-iec relative z-10 py-16 md:py-20 grid gap-12 md:grid-cols-12">
+    <div class="md:col-span-5">
+      <div class="flex items-center gap-2.5 mb-5">
+        <span class="grid place-items-center h-9 w-9 rounded-md bg-blue text-white font-display font-bold text-sm">IEC</span>
+        <span class="font-display font-semibold text-white text-lg">Germany</span>
+      </div>
+      <p class="text-sm max-w-sm leading-relaxed text-white/60">{company.tagline}.</p>
+      <p class="text-sm mt-5 text-white/50 leading-relaxed">
+        {company.name}<br />
+        {company.street}<br />
+        {company.zip} {company.city}, {company.country}
+      </p>
+    </div>
+
+    <div class="md:col-span-3">
+      <div class="eyebrow eyebrow-light mb-5">Navigation</div>
+      <ul class="space-y-3 text-sm">
+        {nav.map((item) => (
+          <li><a href={item.href} class="hover:text-white transition-colors">{item.label}</a></li>
+        ))}
+      </ul>
+    </div>
+
+    <div class="md:col-span-4">
+      <div class="eyebrow eyebrow-light mb-5">Kontakt</div>
+      <ul class="space-y-3 text-sm">
+        <li><a href={`tel:${company.phone.replaceAll(' ', '')}`} class="hover:text-white transition-colors">{company.phone}</a></li>
+        <li><a href={`mailto:${company.email}`} class="hover:text-white transition-colors">{company.email}</a></li>
+        <li class="text-white/45">Fax {company.fax}</li>
+      </ul>
+      <a href="/kontakt" class="btn btn-on-dark mt-6 !py-2.5 !px-5 text-sm">Anfrage starten<span aria-hidden="true">→</span></a>
+    </div>
+  </div>
+
+  <div class="relative z-10 border-t border-white/10">
+    <div class="container-iec py-5 flex flex-col sm:flex-row justify-between gap-2 text-xs text-white/40">
+      <span>© {year} {company.name} · Alle Rechte vorbehalten</span>
+      <span>{company.hrb} · USt-ID {company.vatId} · GF {company.ceo}</span>
+    </div>
+  </div>
+</footer>

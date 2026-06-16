@@ -1,0 +1,30 @@
+---
+interface Row { nr: string; name: string; use: string }
+interface Props { rows: Row[]; caption?: string }
+const { rows, caption } = Astro.props;
+---
+<div class="reveal overflow-hidden rounded-xl border border-gray-200 bg-white shadow-[0_18px_50px_-30px_rgba(10,15,34,0.4)]">
+  <div class="overflow-x-auto">
+    <table class="w-full text-left text-sm">
+      <thead>
+        <tr class="bg-navy text-white/90">
+          <th class="font-mono text-[11px] uppercase tracking-[0.15em] px-5 py-4 font-medium">Werkstoff-Nr.</th>
+          <th class="font-mono text-[11px] uppercase tracking-[0.15em] px-5 py-4 font-medium">Bezeichnung</th>
+          <th class="font-mono text-[11px] uppercase tracking-[0.15em] px-5 py-4 font-medium">Einsatz</th>
+        </tr>
+      </thead>
+      <tbody>
+        {rows.map((r, i) => (
+          <tr class={`border-t border-gray-100 transition-colors hover:bg-blue/[0.03] ${i % 2 ? 'bg-cream' : 'bg-white'}`}>
+            <td class="px-5 py-4 align-top whitespace-nowrap">
+              <span class="font-mono text-blue font-medium border-l-2 border-blue pl-3">{r.nr}</span>
+            </td>
+            <td class="px-5 py-4 align-top text-navy font-medium">{r.name}</td>
+            <td class="px-5 py-4 align-top text-navy-light">{r.use}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+</div>
+{caption && <p class="reveal mt-4 text-xs text-muted max-w-2xl">{caption}</p>}

@@ -1,0 +1,16 @@
+# dependencies
+node_modules/
+
+# build output
+dist/
+.astro/
+
+# env
+.env
+.env.production
+
+# brainstorm / visual companion artefacts
+.superpowers/
+
+# os
+.DS_Store

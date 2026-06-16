@@ -1,0 +1,123 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import TrustBar from '../components/TrustBar.astro';
+import Section from '../components/Section.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import ProductGrid from '../components/ProductGrid.astro';
+import Card from '../components/Card.astro';
+import FeatureSplit from '../components/FeatureSplit.astro';
+import FAQSection from '../components/FAQSection.astro';
+import CTABanner from '../components/CTABanner.astro';
+import { usps } from '../lib/site';
+
+const breadcrumbs = [
+  { name: 'Start', href: '/' },
+  { name: 'Biogasanlagen', href: '/biogasanlagen' },
+];
+
+const faq = [
+  { q: 'Warum sind Biogas-Ventile besonders belastet?', a: 'Biogas, Deponie- und Klärgas enthalten Schwefelverbindungen, Siloxane und weitere aggressive Begleitstoffe. Schwefel führt zu korrosivem Angriff auf Ventil, Ventilsitz und Führung, während Siloxane abrasive Ablagerungen bilden, die den Dichtsitz schädigen. Im Dauerbetrieb des BHKW summieren sich hohe Temperaturen und sehr viele Betriebsstunden zu einer Belastung, der Standardwerkstoffe nicht dauerhaft standhalten.' },
+  { q: 'Was ist IEC120S?', a: 'IEC120S ist unser eigenes, pulvermetallurgisch hergestelltes Sintermaterial mit perlitisch-ferritischer Matrix und eingelagerten Karbiden. Es wurde speziell für Ventilführungen in Biogas- und Deponiegasmotoren entwickelt und bietet hohe Verschleiß- und Korrosionsbeständigkeit unter den aggressiven Bedingungen dieser Anwendungen.' },
+  { q: 'Welche Ventile eignen sich für Biogasmotoren?', a: 'Für Biogasmotoren empfehlen wir Auslassventile aus der Nickelbasis-Superlegierung Nimonic 80A (2.4952), ausgelegt für Temperaturen bis rund 800 °C, in Kombination mit Impulsplasmanitrieren. Diese Oberflächenbehandlung bietet korrosionsbeständigen Verschleißschutz und ist gegenüber Hartchrom die ökologisch vorteilhaftere Wahl.' },
+  { q: 'Liefert IEC komplette Ventiltriebssätze?', a: 'Ja. Wir liefern komplette Ventiltriebssätze aus einer Hand – aufeinander abgestimmte Auslassventile aus Nimonic 80A, Ventilführungen aus IEC120S und gepanzerte Ventilsitzringe. So erhalten Sie eine aufeinander abgestimmte Werkstoff- und Oberflächenkombination für lange Standzeiten.' },
+];
+---
+
+<Layout
+  title="Ventile & Komponenten für Biogasanlagen | IEC Germany"
+  description="Ventile, Führungen und Sitzringe für Biogasanlagen: IEC120S, Nimonic 80A und Plasmanitrieren gegen Korrosion durch Schwefel und Siloxane im BHKW."
+  breadcrumbs={breadcrumbs}
+  faq={faq}
+>
+  <Hero
+    layout="centered"
+    eyebrow="Anwendung · Biogas"
+    title="Komponenten für die korrosivste Umgebung im Motorenbau"
+    highlight="korrosivste Umgebung"
+    subtitle="Biogas, Deponie- und Klärgas greifen den Ventiltrieb von BHKW-Motoren massiv an. IEC liefert Werkstoffe und Oberflächen, die diesen Bedingungen dauerhaft standhalten."
+    badges={['IEC120S', 'Nimonic 80A', 'Plasmanitriert']}
+    primary={{ label: 'Jetzt anfragen', href: '/kontakt' }}
+    breadcrumbs={breadcrumbs}
+  />
+
+  <TrustBar items={usps} />
+
+  <Section bg="white">
+    <SectionHeading
+      num="01"
+      eyebrow="Herausforderung"
+      title="Schwefel, Siloxane, Korrosion"
+      intro="Kein anderer Einsatzbereich fordert den Ventiltrieb so stark wie der Betrieb mit Biogas, Deponie- oder Klärgas. Die Zusammensetzung dieser Gase verändert die Verbrennungschemie grundlegend und setzt Ventil, Sitzring und Führung einer Kombination aus Korrosion, Abrasion und thermischer Dauerlast aus."
+    />
+    <p class="reveal text-navy-light leading-relaxed max-w-3xl">
+      Schwefelverbindungen im Gas verbrennen zu aggressiven Produkten, die metallische Oberflächen korrosiv angreifen und die Dichtflächen von Ventil und Sitz schädigen. Siloxane wiederum bilden harte, abrasive Ablagerungen, die wie ein Schleifmittel auf den bewegten Bauteilen wirken. Beide Effekte treffen im Blockheizkraftwerk (BHKW) auf einen Motor, der über tausende Betriebsstunden bei hoher Temperatur durchläuft. Standardwerkstoffe verschleißen unter diesen Bedingungen schnell – die Lebensdauer des gesamten Ventiltriebs entscheidet sich deshalb an der richtigen Werkstoff- und Oberflächenwahl.
+    </p>
+    <div class="reveal grid sm:grid-cols-3 gap-5 mt-10">
+      <Card title="Korrosive Gase" desc="Schwefelverbindungen und aggressive Verbrennungsprodukte greifen Ventil, Sitzring und Führung an." />
+      <Card title="Siloxane" desc="Bilden harte, abrasive Ablagerungen an Ventil und Sitz und beschleunigen den Verschleiß der Dichtflächen." />
+      <Card title="Dauerlast im BHKW" desc="Hohe Temperaturen und sehr viele Betriebsstunden summieren sich zu einer extremen Dauerbelastung." />
+    </div>
+  </Section>
+
+  <Section bg="ink">
+    <SectionHeading
+      dark
+      num="02"
+      eyebrow="Unsere Lösung"
+      title="IEC120S, Nimonic 80A und Plasmanitrieren"
+      intro="Gegen diese Belastung setzen wir auf ein abgestimmtes System aus eigenem Sintermaterial, einer hochwarmfesten Superlegierung und moderner Oberflächentechnik. Jeder Baustein adressiert einen der drei kritischen Faktoren – Korrosion, Temperatur und Verschleiß."
+    />
+    <p class="reveal text-slate-300 leading-relaxed max-w-3xl">
+      Für die Ventilführungen verwenden wir das pulvermetallurgisch hergestellte Sintermaterial IEC120S, dessen perlitisch-ferritische Matrix mit eingelagerten Karbiden gezielt für Biogas- und Deponiegasanwendungen entwickelt wurde. Auf der thermisch höchstbelasteten Auslassseite arbeiten wir mit Nimonic 80A (2.4952), einer Nickel-Chrom-Superlegierung, die bis rund 800 °C ihre Festigkeit behält. Den entscheidenden Schutz gegen Korrosion und Abrasion liefert das Impulsplasmanitrieren: eine korrosionsbeständige, verschleißfeste und zugleich ökologisch vorteilhafte Oberflächenbehandlung. Mehr zu unseren <a href="/ventile" class="text-blue-400 underline underline-offset-2">Ventilen</a> und passenden <a href="/motorenteile" class="text-blue-400 underline underline-offset-2">Motorenteilen</a> finden Sie auf den jeweiligen Produktseiten.
+    </p>
+    <div class="reveal grid sm:grid-cols-3 gap-5 mt-10">
+      <Card dark title="Sintermaterial IEC120S" desc="Pulvermetallurgisch, perlitisch-ferritische Matrix mit Karbiden – Ventilführungen für Biogas und Deponiegas." />
+      <Card dark title="Nimonic 80A (2.4952)" desc="Nickel-Chrom-Superlegierung für Auslassventile mit Einsatztemperaturen bis rund 800 °C." />
+      <Card dark title="Impulsplasmanitrieren" desc="Korrosionsbeständiger Verschleißschutz – moderne und ökologisch vorteilhafte Oberflächentechnik." />
+    </div>
+  </Section>
+
+  <Section bg="cream">
+    <FeatureSplit
+      eyebrow="Komplettlösung"
+      title="Komplette Ventiltriebssätze aus einer Hand"
+      body="Statt einzelne Komponenten zusammenzustellen, erhalten Sie von IEC den kompletten, aufeinander abgestimmten Ventiltriebssatz für Ihren Biogasmotor. Werkstoffe und Oberflächen werden gemeinsam ausgelegt, sodass Ventil, Führung und Sitzring als System lange Standzeiten erreichen."
+      bullets={['Auslassventile aus Nimonic 80A, plasmanitriert', 'Ventilführungen aus IEC120S', 'Gepanzerte Ventilsitzringe für lange Standzeiten']}
+      image={{ src: '/images/ventiltrieb.jpg', alt: 'Kompletter, aufeinander abgestimmter Ventiltriebssatz von IEC' }}
+      cta={{ label: 'Zu den Ventilen', href: '/ventile' }}
+    />
+  </Section>
+
+  <Section bg="white">
+    <SectionHeading
+      num="03"
+      eyebrow="Passende Produkte"
+      title="Empfohlene Komponenten"
+      intro="Diese drei Komponenten bilden den Kern eines biogastauglichen Ventiltriebs. Gerne stimmen wir die Auslegung auf Ihren konkreten Motor und Ihr Gasprofil ab."
+    />
+    <ProductGrid
+      columns={3}
+      items={[
+        { title: 'Ventile', desc: 'Auslassventile aus Nimonic 80A, plasmanitriert.', href: '/ventile' },
+        { title: 'Ventilführungen', desc: 'Sintermaterial IEC120S für Biogas/Deponiegas.', href: '/motorenteile' },
+        { title: 'Ventilsitzringe', desc: 'Gepanzert für lange Standzeiten.', href: '/motorenteile' },
+      ]}
+    />
+  </Section>
+
+  <Section bg="cream">
+    <FAQSection
+      num="04"
+      eyebrow="FAQ"
+      title="Häufige Fragen zu Biogas-Ventiltrieben"
+      intro="Werkstoffe, Oberflächen und Standzeiten für Biogas-, Deponie- und Klärgasmotoren – kurz erklärt."
+      items={faq}
+    />
+  </Section>
+
+  <CTABanner
+    title="Ventiltrieb für Ihre Biogasanlage?"
+    text="Wir beraten Sie zur Werkstoff- und Oberflächenwahl – ab 1 Stück."
+  />
+</Layout>

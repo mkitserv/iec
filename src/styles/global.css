@@ -1,0 +1,145 @@
+@import "tailwindcss";
+
+/* ============================================================
+   IEC Design System — "Precision Engineering"
+   Single Source of Truth. Modern, technisch, seriös.
+   ============================================================ */
+@theme {
+  /* Brand (verbindliche CI) */
+  --color-blue: #0F4B94;        /* ★ Hauptfarbe */
+  --color-blue-bright: #D3E3FD; /* CI-Sekundärblau: Akzent auf dunklen Flächen */
+  --color-navy: #1C244B;        /* Headlines, dunkle Sektionen */
+  --color-navy-light: #324A6D;  /* Fließtext, Subheadlines */
+  --color-lightblue: #D3E3FD;
+  --color-red: #C8102E;         /* NUR Akzent (Labels/Badges) */
+
+  /* Dramatische Dunkelflächen */
+  --color-ink: #0A0F22;         /* tiefstes Dunkel (Hero/CTA) */
+  --color-ink-2: #111a38;       /* Ink-Verlauf */
+
+  /* Neutrale */
+  --color-cream: #FAFBFD;
+  --color-gray-50: #F4F6F9;
+  --color-gray-100: #ECF0F5;
+  --color-gray-200: #DEE3EC;
+  --color-text: #324A6D;        /* CI Fließtext */
+  --color-muted: #7A8599;
+
+  /* Schrift — verbindliche CI: Poppins (Display + Body), DM Mono (Labels) */
+  --font-display: "Poppins", system-ui, -apple-system, sans-serif;
+  --font-sans: "Poppins", system-ui, -apple-system, sans-serif;
+  --font-mono: "DM Mono", ui-monospace, monospace;
+
+  --radius-btn: 6px;
+}
+
+@layer base {
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body {
+    font-family: var(--font-sans);
+    color: var(--color-text);
+    background: #ffffff;
+    font-weight: 400;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    color: var(--color-navy);
+    font-weight: 600;
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+  }
+  a { color: inherit; text-decoration: none; }
+  ::selection { background: var(--color-blue); color: #fff; }
+}
+
+@layer components {
+  .container-iec { max-width: 1200px; margin-inline: auto; padding-inline: 1.5rem; }
+  .container-narrow { max-width: 820px; margin-inline: auto; padding-inline: 1.5rem; }
+
+  /* Eyebrow / Labels */
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--color-red); font-weight: 500;
+    display: inline-flex; align-items: center; gap: 0.6rem;
+  }
+  .eyebrow::before {
+    content: ""; width: 1.6rem; height: 1px; background: currentColor; opacity: 0.7;
+  }
+  .eyebrow-light { color: var(--color-blue-bright); }
+
+  /* Buttons */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 0.55rem;
+    padding: 0.9rem 1.6rem; border-radius: var(--radius-btn);
+    font-family: var(--font-sans); font-weight: 600; font-size: 0.9375rem; letter-spacing: -0.01em;
+    transition: transform .18s ease, background-color .2s ease, color .2s ease, border-color .2s ease, box-shadow .2s ease;
+    cursor: pointer;
+  }
+  .btn:hover { transform: translateY(-2px); }
+  .btn-primary { background: var(--color-blue); color: #fff; box-shadow: 0 8px 24px -10px rgba(15,75,148,.7); }
+  .btn-primary:hover { background: var(--color-navy); box-shadow: 0 12px 30px -10px rgba(15,75,148,.85); }
+  .btn-secondary { background: transparent; color: var(--color-navy); border: 1px solid var(--color-gray-200); }
+  .btn-secondary:hover { border-color: var(--color-blue); color: var(--color-blue); }
+  .btn-on-dark { background: #fff; color: var(--color-navy); }
+  .btn-on-dark:hover { background: var(--color-blue); color: #fff; }
+  .btn-ghost-light { color: #fff; border: 1px solid rgba(255,255,255,.22); }
+  .btn-ghost-light:hover { background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.5); }
+
+  /* Blueprint-Raster (für dunkle Sektionen) */
+  .blueprint {
+    background-image:
+      linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px);
+    background-size: 44px 44px;
+  }
+  .ink-gradient { background: radial-gradient(120% 120% at 80% 0%, var(--color-ink-2) 0%, var(--color-ink) 60%); }
+
+  /* Glow */
+  .glow-blue { position: relative; }
+  .glow-blue::before {
+    content: ""; position: absolute; inset: auto; width: 520px; height: 520px;
+    background: radial-gradient(circle, rgba(78,128,205,.24) 0%, transparent 65%);
+    filter: blur(20px); pointer-events: none; z-index: 0;
+  }
+
+  /* Hairline */
+  .hairline { height: 1px; background: var(--color-gray-200); border: 0; }
+
+  /* Große, dezente Sektionsnummer */
+  .section-num {
+    font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: .2em;
+    color: var(--color-muted);
+  }
+
+  /* Animierter Link-Unterstrich */
+  .nav-link { position: relative; }
+  .nav-link::after {
+    content: ""; position: absolute; left: 0; bottom: -4px; height: 2px; width: 0;
+    background: var(--color-blue); transition: width .25s ease;
+  }
+  .nav-link:hover::after { width: 100%; }
+
+  /* Pills / Tags */
+  .pill {
+    display: inline-flex; align-items: center; gap: .4rem;
+    font-size: .75rem; font-weight: 500; color: var(--color-navy);
+    background: var(--color-gray-50); border: 1px solid var(--color-gray-200);
+    border-radius: 999px; padding: .4rem .85rem;
+  }
+  .pill-dark { color: #cfe0ff; background: rgba(255,255,255,.05); border-color: rgba(255,255,255,.14); }
+}
+
+/* Scroll-Reveal (dezent, seriös) — nur mit JS; ohne JS ist alles sichtbar */
+@layer utilities {
+  .reveal { opacity: 1; transform: none; }
+  html.js .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s cubic-bezier(.16,1,.3,1), transform .7s cubic-bezier(.16,1,.3,1); will-change: opacity, transform; }
+  html.js .reveal.is-visible { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    html.js .reveal { opacity: 1; transform: none; transition: none; }
+    html { scroll-behavior: auto; }
+  }
+}

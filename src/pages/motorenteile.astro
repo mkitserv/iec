@@ -1,0 +1,138 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import TrustBar from '../components/TrustBar.astro';
+import Section from '../components/Section.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import ProductGrid from '../components/ProductGrid.astro';
+import ImageGallery from '../components/ImageGallery.astro';
+import ProcessSteps from '../components/ProcessSteps.astro';
+import FAQSection from '../components/FAQSection.astro';
+import CTABanner from '../components/CTABanner.astro';
+import { productCategories } from '../lib/data';
+import { usps } from '../lib/site';
+
+const breadcrumbs = [
+  { name: 'Start', href: '/' },
+  { name: 'Motorenteile', href: '/motorenteile' },
+];
+
+const faq = [
+  {
+    q: 'Fertigt IEC auch Einzelstücke?',
+    a: 'Ja. Wir fertigen ab 1 Stück – von der Einzelanfertigung nach Original bis zur Serie. Gerade für seltene, abgekündigte oder nicht mehr lieferbare Motorenteile ist die Fertigung ab Losgröße 1 unser Standard.',
+  },
+  {
+    q: 'Welche Komponenten gehören zum Ventiltrieb?',
+    a: 'Zum Ventiltrieb zählen Ventile, Ventilführungen, Ventilsitzringe, Ventilfedern, Ventilkegelstücke, Ventilfederteller und Ventildrehvorrichtungen. IEC fertigt diese Komponenten einzeln oder als komplett aufeinander abgestimmten Satz.',
+  },
+  {
+    q: 'Liefert IEC komplette Ventiltriebssätze?',
+    a: 'Ja. Wir stellen vollständige, aufeinander abgestimmte Ventiltriebssätze zusammen – inklusive Werkstoff- und Oberflächenwahl für Ventile, Führungen, Sitzringe und Federn. Das vereinfacht Ihre Beschaffung und sichert die Funktion im Verbund.',
+  },
+  {
+    q: 'Fertigt IEC auch Kolben, Nockenwellen und Zylinderköpfe?',
+    a: 'Ja, auf Anfrage. Über den Ventiltrieb hinaus fertigen wir Kolben, Kolbenringe, Zylinderlaufbuchsen, Kurbelwellen, Pleuel, Nockenwellen, Stößel, Kipphebel sowie Zylinderköpfe und Kurbelgehäuse – nach Ihrer Zeichnung oder Ihrem Muster.',
+  },
+];
+---
+<Layout
+  title="Motorenteile & Ventiltrieb-Komponenten | IEC Germany"
+  description="Motorenteile für Groß- und Spezialmotoren: kompletter Ventiltrieb, Kolben, Dichtungen und Einspritztechnik. Nach Zeichnung oder Muster, ab 1 Stück, Made in Germany."
+  breadcrumbs={breadcrumbs}
+  faq={faq}
+>
+  <Hero
+    layout="centered"
+    eyebrow="Produkte"
+    title="Motorenteile für Groß- und Spezialmotoren"
+    highlight="Groß- und Spezialmotoren"
+    subtitle="Vom kompletten Ventiltrieb bis zu Kolben, Dichtungen und Einspritztechnik: IEC fertigt nach Ihrer Zeichnung oder Ihrem Muster – präzise, dokumentiert und ab 1 Stück."
+    primary={{ label: 'Jetzt anfragen', href: '/kontakt' }}
+    secondary={{ label: 'Ventile ansehen', href: '/ventile' }}
+    breadcrumbs={breadcrumbs}
+  />
+
+  <TrustBar items={usps} />
+
+  <Section bg="white">
+    <SectionHeading
+      num="01"
+      eyebrow="Ventiltrieb"
+      title="Unsere Kernkompetenz"
+      intro="Der Ventiltrieb entscheidet über Leistung, Standzeit und Betriebssicherheit eines Motors. IEC fertigt hier seit 1984 alle tragenden Bauteile – einzeln oder als komplett abgestimmten Satz für Groß- und Spezialmotoren."
+    />
+    <p class="reveal text-navy-light leading-relaxed max-w-3xl mb-12">
+      Ventile, Führungen, Sitzringe und Federn arbeiten als System: Wärmeabfuhr, Spiel und Vorspannung müssen exakt zusammenpassen, damit der Gaswechsel über Tausende Betriebsstunden zuverlässig funktioniert. Wir wählen für jede Anwendung Werkstoff und Oberfläche passend zur thermischen und mechanischen Belastung aus – ob hochbelastetes Auslassventil, verschleißfeste Führung oder gepanzerter Sitzring. Vertiefende Werkstoffe, Bauformen und Einsatzbereiche unserer
+      <a href="/ventile" class="text-blue hover:underline">Ventile</a> finden Sie auf der jeweiligen Produktseite; für korrosive Gasanwendungen lohnt zusätzlich der Blick auf unsere Lösungen für
+      <a href="/biogasanlagen" class="text-blue hover:underline">Biogasanlagen</a>.
+    </p>
+    <ProductGrid
+      columns={3}
+      items={[
+        { title: 'Ventile', desc: 'Ein- und Auslassventile bis 100 mm, Start- und Konstantdrosselventile – martensitisch, austenitisch, Nimonic 80A oder Titan.', href: '/ventile', tag: 'Kernkompetenz' },
+        { title: 'Ventilführungen', desc: 'Werkstoffe GG25/GGP70, Sondermessing CW713R und Sintermaterial IEC120S – abgestimmt auf Wärmeabfuhr und Verschleißschutz.', href: '/ventile' },
+        { title: 'Ventilsitzringe', desc: 'Gepanzert mit Stellite oder Tribaloy – als Tribosystem auf Ventil und Werkstoff abgestimmt für lange Standzeiten.', href: '/ventile' },
+        { title: 'Ventilfedern', desc: 'Aus Oteva 70, mit runden oder elliptischen Drähten – ausgelegt auf Vorspannung, Drehzahl und Lebensdauer.', href: '/ventile' },
+        { title: 'Ventilkegelstücke', desc: 'Klemmend oder nicht-klemmend ausgeführt – für die sichere axiale Verbindung von Ventil und Federteller.', href: '/ventile' },
+        { title: 'Ventilfederteller', desc: 'Obere und untere Federteller, passend zu Kegelstück und Feder dimensioniert.', href: '/ventile' },
+        { title: 'Ventildrehvorrichtungen', desc: 'Rotocap- und Turnomat-Systeme zur gleichmäßigen Ventildrehung – für gleichmäßigen Verschleiß und besseren Wärmeübergang.', href: '/ventile' },
+      ]}
+    />
+  </Section>
+
+  <Section bg="cream">
+    <SectionHeading
+      num="02"
+      eyebrow="Weitere Komponenten"
+      title="Über den Ventiltrieb hinaus"
+      intro="Neben dem Ventiltrieb liefert IEC weitere zentrale Motorenteile für Groß- und Spezialmotoren – vom Kurbeltrieb über Dichtungen bis zur Einspritztechnik."
+    />
+    <p class="reveal text-navy-light leading-relaxed max-w-3xl mb-12">
+      Wer Ersatz- und Verschleißteile für ältere oder seltene Motoren beschafft, braucht oft mehr als nur den Ventiltrieb. Deshalb fertigen wir auch Kolben, Kolbenringe, Zylinderlaufbuchsen und Kurbelwellen, komplette Dichtsätze, Nockenwellen mit Zubehör sowie Zylinderköpfe und Kurbelgehäuse – alles nach Zeichnung oder Muster. So erhalten Sie passende Komponenten aus einer Hand, ohne mehrere Lieferanten koordinieren zu müssen. Steht Ihr Bauteil nicht in der Übersicht, sprechen Sie uns einfach über das
+      <a href="/kontakt" class="text-blue hover:underline">Kontaktformular</a> an.
+    </p>
+    <ProductGrid items={productCategories} columns={3} />
+    <div class="mt-10">
+      <ImageGallery cols={3} items={[
+        { src: '/images/nockenwellen.jpg', alt: 'Nockenwellen von IEC', caption: 'Nockenwellen' },
+        { src: '/images/kolbenbolzen.jpg', alt: 'Kolbenbolzen und Kurbeltrieb-Komponenten', caption: 'Kolben & Kurbeltrieb' },
+        { src: '/images/ventilfuehrungen.jpg', alt: 'Ventilführungen in verschiedenen Werkstoffen', caption: 'Ventilführungen' },
+      ]} />
+    </div>
+  </Section>
+
+  <Section bg="ink">
+    <SectionHeading
+      dark
+      num="03"
+      eyebrow="Ablauf"
+      title="Fertigung nach Zeichnung oder Muster"
+      intro="Ob bemaßte Zeichnung oder physisches Muster – unser Ablauf führt strukturiert von Ihrer Anfrage bis zum geprüften, dokumentierten Bauteil."
+    />
+    <ProcessSteps
+      dark
+      steps={[
+        { title: 'Anfrage & Zeichnung', desc: 'Sie senden Zeichnung oder Muster.' },
+        { title: 'Werkstoffberatung', desc: 'Wir wählen Werkstoff und Oberfläche.' },
+        { title: 'Fertigung', desc: 'Produktion in DE/EU, ab 1 Stück.' },
+        { title: 'Prüfung & Dokumentation', desc: '100 % Prüfung, Doku nach Vorgabe.' },
+      ]}
+    />
+  </Section>
+
+  <Section bg="cream">
+    <FAQSection
+      num="04"
+      eyebrow="FAQ"
+      title="Häufige Fragen"
+      intro="Antworten auf die häufigsten Fragen zu Fertigung, Stückzahlen und Bauteilumfang unserer Motorenteile."
+      items={faq}
+    />
+  </Section>
+
+  <CTABanner
+    title="Ihr Bauteil ist nicht dabei?"
+    text="Wir fertigen nach Ihrer Zeichnung oder Ihrem Muster – sprechen Sie uns an."
+  />
+</Layout>

@@ -1,0 +1,78 @@
+---
+// Dekorative Engineering-Zeichnung eines Ventils mit Bemaßung.
+// Self-contained SVG, optimiert für dunkle Hintergründe.
+interface Props { class?: string }
+const { class: cls = '' } = Astro.props;
+---
+<svg viewBox="0 0 460 520" class={cls} role="img" aria-label="Technische Konstruktionszeichnung eines Ventils" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="valveFill" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2E7DF6" stop-opacity="0.35" />
+      <stop offset="55%" stop-color="#2E7DF6" stop-opacity="0.12" />
+      <stop offset="100%" stop-color="#2E7DF6" stop-opacity="0.28" />
+    </linearGradient>
+    <linearGradient id="valveEdge" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#9cc2ff" />
+      <stop offset="100%" stop-color="#ffffff" />
+    </linearGradient>
+  </defs>
+
+  <g fill="none" stroke="rgba(156,194,255,0.45)" stroke-width="1">
+    <!-- Mittelachse -->
+    <line x1="230" y1="36" x2="230" y2="486" stroke-dasharray="2 6" stroke="rgba(255,255,255,0.35)" />
+  </g>
+
+  <!-- Ventilkörper -->
+  <g stroke="url(#valveEdge)" stroke-width="1.6" fill="url(#valveFill)" stroke-linejoin="round">
+    <!-- Schaftspitze + Nuten -->
+    <path d="M216 60 q0 -14 14 -14 q14 0 14 14 L244 300 L216 300 Z" />
+    <!-- Kopf (Flare) -->
+    <path d="M216 300 L244 300 L322 396 L138 396 Z" />
+    <!-- Ventilteller / Sitzfläche -->
+    <path d="M138 396 L322 396 L300 424 L160 424 Z" />
+  </g>
+
+  <!-- Nuten am Schaftende -->
+  <g stroke="rgba(255,255,255,0.65)" stroke-width="1.4">
+    <line x1="216" y1="80" x2="244" y2="80" />
+    <line x1="216" y1="90" x2="244" y2="90" />
+  </g>
+
+  <!-- Sitzring-Andeutung -->
+  <ellipse cx="230" cy="424" rx="78" ry="9" fill="none" stroke="rgba(156,194,255,0.5)" stroke-width="1.2" />
+
+  <!-- Bemaßung: Gesamtlänge (links) -->
+  <g stroke="rgba(255,255,255,0.4)" stroke-width="1" fill="none">
+    <line x1="92" y1="50" x2="92" y2="424" />
+    <path d="M88 56 L92 48 L96 56" />
+    <path d="M88 418 L92 426 L96 418" />
+    <line x1="92" y1="50" x2="210" y2="50" stroke-dasharray="2 5" />
+    <line x1="92" y1="424" x2="150" y2="424" stroke-dasharray="2 5" />
+  </g>
+  <text x="84" y="240" fill="#9cc2ff" font-family="'DM Mono', monospace" font-size="13" transform="rotate(-90 84 240)" text-anchor="middle">L = 140 mm</text>
+
+  <!-- Bemaßung: Tellerdurchmesser (unten) -->
+  <g stroke="rgba(255,255,255,0.4)" stroke-width="1" fill="none">
+    <line x1="138" y1="452" x2="322" y2="452" />
+    <path d="M144 448 L136 452 L144 456" />
+    <path d="M316 448 L324 452 L316 456" />
+    <line x1="138" y1="396" x2="138" y2="452" stroke-dasharray="2 5" />
+    <line x1="322" y1="396" x2="322" y2="452" stroke-dasharray="2 5" />
+  </g>
+  <text x="230" y="474" fill="#9cc2ff" font-family="'DM Mono', monospace" font-size="13" text-anchor="middle">&#216; 47 mm</text>
+
+  <!-- Callouts -->
+  <g font-family="'DM Mono', monospace" font-size="12" fill="rgba(255,255,255,0.8)">
+    <line x1="244" y1="180" x2="350" y2="180" stroke="rgba(255,255,255,0.3)" stroke-width="1" />
+    <circle cx="244" cy="180" r="2.4" fill="#2E7DF6" />
+    <text x="356" y="176">Schaft &#216; 10</text>
+    <text x="356" y="192" fill="rgba(156,194,255,0.75)">1.4718 / HNV3</text>
+
+    <line x1="280" y1="372" x2="358" y2="340" stroke="rgba(255,255,255,0.3)" stroke-width="1" />
+    <circle cx="280" cy="372" r="2.4" fill="#2E7DF6" />
+    <text x="362" y="336">Teller</text>
+    <text x="362" y="352" fill="rgba(156,194,255,0.75)">Nimonic 80A</text>
+
+    <text x="262" y="408" fill="rgba(156,194,255,0.75)">45&#176;</text>
+  </g>
+</svg>

@@ -1,0 +1,97 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import TrustBar from '../components/TrustBar.astro';
+import Section from '../components/Section.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import ProductGrid from '../components/ProductGrid.astro';
+import Card from '../components/Card.astro';
+import ImageGallery from '../components/ImageGallery.astro';
+import FAQSection from '../components/FAQSection.astro';
+import CTABanner from '../components/CTABanner.astro';
+import { productCategories, applications } from '../lib/data';
+import { usps } from '../lib/site';
+
+const stats = [
+  { value: '40+', label: 'Jahre Erfahrung', count: { to: 40, suffix: '+' } },
+  { value: 'ab 1', label: 'Stück Fertigung' },
+  { value: '100 %', label: 'Prüfung im Haus', count: { to: 100, suffix: ' %' } },
+  { value: '1984', label: 'gegründet' },
+];
+
+const pillars = [
+  { tag: 'Entwicklung', title: 'Moderne Entwicklung', desc: 'Erfahrene Ingenieure, FEM-Berechnungen und Simulationen – von der Auslegung bis zur Serie.' },
+  { tag: 'Werkstoffe', title: 'Beste Werkstoffe', desc: 'Nur Material von führenden Herstellern und eigene Entwicklungen wie das Sintermaterial IEC120S.' },
+  { tag: 'Qualität', title: 'Geprüfte Qualität', desc: '100 % Prüfung im eigenen Labor, dokumentiert nach Ihren Vorgaben – rückverfolgbar bis zum Werkstoff.' },
+];
+
+const labItems = [
+  { src: '/images/fem.jpg', alt: 'FEM-Spannungsanalyse eines Ventils bei IEC', caption: 'FEM-Spannungsanalyse' },
+  { src: '/images/roentgen.jpg', alt: 'Röntgenprüfung eines Ventilsitzes', caption: 'Röntgenprüfung' },
+  { src: '/images/ultraschall.jpg', alt: 'Zerstörungsfreie Ultraschallprüfung', caption: 'Ultraschallprüfung' },
+  { src: '/images/mikroschliff.jpg', alt: 'Metallografischer Mikroschliff im Labor', caption: 'Metallografie' },
+  { src: '/images/werkstoffanalyse.jpg', alt: 'Werkstoffanalyse per Röntgenfluoreszenz', caption: 'Werkstoffanalyse (RFA)' },
+  { src: '/images/risspruefung.jpg', alt: 'Rissprüfung mit Farbeindringverfahren', caption: 'Rissprüfung (DPI)' },
+];
+
+const faq = [
+  { q: 'Fertigt IEC auch Einzelstücke und Kleinserien?', a: 'Ja. Wir fertigen ab 1 Stück nach Ihrer Zeichnung oder Ihrem Muster – vom einzelnen Ersatzteil bis zum kompletten Ventiltriebssatz.' },
+  { q: 'Welche Werkstoffe setzt IEC für Motorenkomponenten ein?', a: 'Je nach Belastung martensitische und austenitische Ventilstähle, die Nickelbasis-Superlegierung Nimonic 80A (2.4952), Titan TiAl6V4 sowie das eigene Sintermaterial IEC120S.' },
+  { q: 'Sind die Komponenten für Biogas- und Gasmotoren geeignet?', a: 'Ja. Für korrosive Gase kombinieren wir IEC120S, Nimonic 80A und Impulsplasmanitrieren – ausgelegt auf Biogas-, Deponie- und Klärgasanwendungen.' },
+  { q: 'Seit wann ist IEC am Markt?', a: 'IEC entwickelt, fertigt und liefert seit 1984 Motorenkomponenten – als direkter Hersteller mit Sitz in Kirchberg an der Murr, Made in Germany.' },
+];
+---
+<Layout
+  title="Motorenkomponenten direkt vom Hersteller | IEC Germany"
+  description="IEC Germany fertigt Ventile, Ventiltrieb & Motorenteile für Großmotoren – ab 1 Stück nach Zeichnung, im Haus geprüft. Made in Germany seit 1984."
+  faq={faq}
+>
+  <Hero
+    eyebrow="Industrial-engine components · seit 1984"
+    title="Motorenkomponenten direkt vom Hersteller"
+    highlight="direkt vom Hersteller"
+    subtitle="Höchste Qualität, maximale Belastbarkeit: Ventiltrieb, Kolben, Dichtungen und Einspritztechnik – ab 1 Stück nach Zeichnung oder Muster, geprüft im eigenen Labor."
+    badges={usps}
+    primary={{ label: 'Jetzt anfragen', href: '/kontakt' }}
+    secondary={{ label: 'Produkte ansehen', href: '/motorenteile' }}
+    image={{ src: '/images/hero-valves.jpg', alt: 'Ventile, Ventilführungen und Ventilschaftdichtungen von IEC', caption: 'Ventile · Führungen · Schaftdichtungen' }}
+    layout="split"
+    stats={stats}
+  />
+
+  <TrustBar items={usps} />
+
+  <Section bg="white">
+    <SectionHeading num="01" eyebrow="Produkte" title="Komponenten für den gesamten Ventiltrieb" intro="Vom Ventil bis zur Einspritzdüse – sechs Produktfamilien für Groß- und Spezialmotoren, gefertigt nach Ihrer Spezifikation." />
+    <ProductGrid items={productCategories} columns={3} />
+  </Section>
+
+  <Section bg="cream">
+    <SectionHeading num="02" eyebrow="Anwendungen" title="Für die anspruchsvollsten Einsatzbereiche" intro="Wo Temperatur, Korrosion und Dauerlast an die Grenzen gehen, liefern wir die passende Werkstoff- und Oberflächenlösung." />
+    <ProductGrid items={applications} columns={2} />
+  </Section>
+
+  <Section bg="white">
+    <SectionHeading num="03" eyebrow="Warum IEC" title="Werkstoffexpertise, die den Unterschied macht" intro="Drei Prinzipien, die jede Komponente von IEC tragen." />
+    <div class="grid gap-5 md:grid-cols-3">
+      {pillars.map((p) => <Card tag={p.tag} title={p.title} desc={p.desc} />)}
+    </div>
+  </Section>
+
+  <Section bg="ink">
+    <SectionHeading dark num="04" eyebrow="Entwicklung & Prüfung" title="Wissen, das man messen kann." intro="Von der FEM-Auslegung bis zur zerstörungsfreien Prüfung: IEC entwickelt und prüft im eigenen Haus – mit eigenem Werkstofflabor und lückenloser Dokumentation nach Ihren Vorgaben." />
+    <ImageGallery dark cols={3} items={labItems} />
+    <p class="reveal mt-8 max-w-3xl leading-relaxed text-white/60">
+      Jede sicherheitsrelevante Komponente wird zu 100 % geprüft – metallografisch, per Farbeindring- und Magnetpulverprüfung, Röntgen, Computertomografie und Ultraschall. So entstehen Bauteile, die unter Höchstlast bestehen.
+    </p>
+  </Section>
+
+  <Section bg="cream">
+    <FAQSection num="05" eyebrow="FAQ" title="Häufige Fragen an den Hersteller" intro="Antworten zu Fertigung, Werkstoffen und Einsatzbereichen – kompakt zusammengefasst." items={faq} />
+  </Section>
+
+  <CTABanner
+    title="Individuelle Anforderungen? Wir liefern Lösungen."
+    text="Senden Sie uns Ihre Zeichnung oder Ihr Muster – wir beraten Sie persönlich, ab 1 Stück."
+  />
+</Layout>

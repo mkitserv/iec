@@ -1,0 +1,159 @@
+---
+const ventiltrieb = [
+  { label: 'Ventile', href: '/ventile', desc: 'Gaswechsel-, Start- & Konstantdrosselventile' },
+  { label: 'Ventilführungen', href: '/motorenteile', desc: 'GG25, Sondermessing, Sintermaterial IEC120S' },
+  { label: 'Ventilsitzringe', href: '/motorenteile', desc: 'Gepanzert mit Stellite / Tribaloy' },
+  { label: 'Ventilfedern', href: '/motorenteile', desc: 'Oteva 70, runde & elliptische Drähte' },
+  { label: 'Ventilkegelstücke', href: '/motorenteile', desc: 'Klemmend oder nicht-klemmend' },
+  { label: 'Ventilfederteller', href: '/motorenteile', desc: 'Für alle Einsatzgebiete' },
+  { label: 'Ventildrehvorrichtungen', href: '/motorenteile', desc: 'Rotocap, Turnomat' },
+];
+const weitere = [
+  { label: 'Kolben & Kurbeltrieb', href: '/motorenteile', desc: 'Kolben, Ringe, Pleuel, Kurbelwellen' },
+  { label: 'Dichtungen', href: '/motorenteile', desc: 'Zylinderkopfdichtungen & Dichtsätze' },
+  { label: 'Nockenwellen & Zubehör', href: '/motorenteile', desc: 'Nockenwellen, Stößel, Kipphebel' },
+  { label: 'Zylinderköpfe & Kurbelgehäuse', href: '/motorenteile', desc: 'Fertigung auf Anfrage' },
+  { label: 'Einspritztechnik', href: '/motorenteile', desc: 'Düsen, Pumpenteile, Injektoren' },
+];
+const anwendungen = [
+  { label: 'Gasmotoren', href: '/biogasanlagen', desc: 'Ventiltriebssätze für Erdgas-Energieerzeugung' },
+  { label: 'Biogasanlagen', href: '/biogasanlagen', desc: 'IEC120S, Nimonic 80A, Plasmanitrieren' },
+  { label: 'Industriemotoren & Marine', href: '/biogasanlagen', desc: 'Großmotoren, Schweröl, Startventile' },
+  { label: 'Oldtimer & Rennsport', href: '/biogasanlagen', desc: 'Ab 1 Stück, Titan TiAl6V4' },
+];
+---
+<header data-header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md transition-shadow border-b border-transparent data-[scrolled]:border-gray-200 data-[scrolled]:shadow-[0_8px_30px_-12px_rgba(10,15,34,0.12)]">
+  <div class="container-iec flex items-center justify-between h-[74px]">
+    <a href="/" class="flex items-center shrink-0" aria-label="IEC Germany – Startseite">
+      <img src="/images/iec-logo.jpg" alt="IEC – industrial-engine components" width="653" height="111" class="h-8 w-auto" />
+    </a>
+
+    <nav class="hidden lg:flex items-center gap-8" aria-label="Hauptnavigation">
+      <!-- Produkte -->
+      <div class="group">
+        <a href="/motorenteile" class="nav-link inline-flex items-center gap-1.5 text-[15px] font-medium text-navy/90 hover:text-navy py-7">
+          Produkte <span class="text-muted text-[10px] transition-transform group-hover:rotate-180">▾</span>
+        </a>
+        <div class="invisible opacity-0 translate-y-1 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-200 absolute left-0 right-0 top-full">
+          <div class="container-iec pb-6">
+            <div class="rounded-2xl bg-white shadow-[0_30px_70px_-25px_rgba(10,15,34,0.35)] ring-1 ring-gray-200 overflow-hidden grid lg:grid-cols-[1fr_1fr_0.85fr]">
+              <div class="p-7">
+                <p class="eyebrow mb-4">Ventiltrieb</p>
+                <ul class="space-y-1">
+                  {ventiltrieb.map((i) => (
+                    <li><a href={i.href} class="block rounded-lg px-3 py-2 hover:bg-gray-50 transition-colors">
+                      <span class="block text-sm font-medium text-navy">{i.label}</span>
+                      <span class="block text-xs text-muted">{i.desc}</span>
+                    </a></li>
+                  ))}
+                </ul>
+              </div>
+              <div class="p-7 border-l border-gray-100">
+                <p class="eyebrow mb-4">Weitere Komponenten</p>
+                <ul class="space-y-1">
+                  {weitere.map((i) => (
+                    <li><a href={i.href} class="block rounded-lg px-3 py-2 hover:bg-gray-50 transition-colors">
+                      <span class="block text-sm font-medium text-navy">{i.label}</span>
+                      <span class="block text-xs text-muted">{i.desc}</span>
+                    </a></li>
+                  ))}
+                </ul>
+              </div>
+              <div class="relative ink-gradient text-white p-7 flex flex-col justify-between overflow-hidden">
+                <div class="absolute inset-0 blueprint opacity-50"></div>
+                <div class="relative">
+                  <p class="eyebrow eyebrow-light mb-3">Fertigung</p>
+                  <p class="font-display text-xl leading-snug text-white">Ab 1 Stück nach Zeichnung oder Muster.</p>
+                  <p class="mt-3 text-sm text-white/65">Werkstoff- und Oberflächenberatung inklusive – vom Einzelteil bis zum kompletten Ventiltriebssatz.</p>
+                </div>
+                <a href="/motorenteile" class="relative btn btn-on-dark mt-6 !py-2.5 !px-5 text-sm self-start">Alle Motorenteile<span aria-hidden="true">→</span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Anwendungen -->
+      <div class="group">
+        <a href="/biogasanlagen" class="nav-link inline-flex items-center gap-1.5 text-[15px] font-medium text-navy/90 hover:text-navy py-7">
+          Anwendungen <span class="text-muted text-[10px] transition-transform group-hover:rotate-180">▾</span>
+        </a>
+        <div class="invisible opacity-0 translate-y-1 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-200 absolute left-0 right-0 top-full">
+          <div class="container-iec pb-6">
+            <div class="rounded-2xl bg-white shadow-[0_30px_70px_-25px_rgba(10,15,34,0.35)] ring-1 ring-gray-200 overflow-hidden grid lg:grid-cols-[1.4fr_0.7fr]">
+              <div class="p-7 grid sm:grid-cols-2 gap-1">
+                {anwendungen.map((i) => (
+                  <a href={i.href} class="block rounded-lg px-3 py-3 hover:bg-gray-50 transition-colors">
+                    <span class="block text-sm font-medium text-navy">{i.label}</span>
+                    <span class="block text-xs text-muted">{i.desc}</span>
+                  </a>
+                ))}
+              </div>
+              <div class="relative ink-gradient text-white p-7 flex flex-col justify-between overflow-hidden">
+                <div class="absolute inset-0 blueprint opacity-50"></div>
+                <div class="relative">
+                  <p class="eyebrow eyebrow-light mb-3">Spezialgebiet</p>
+                  <p class="font-display text-xl leading-snug text-white">Biogas-Spezialist mit eigenem Werkstoff IEC120S.</p>
+                </div>
+                <a href="/biogasanlagen" class="relative btn btn-on-dark mt-6 !py-2.5 !px-5 text-sm self-start">Zur Anwendung<span aria-hidden="true">→</span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <a href="/#philosophie" class="nav-link text-[15px] font-medium text-navy/90 hover:text-navy py-7">Über IEC</a>
+      <a href="/kontakt" class="nav-link text-[15px] font-medium text-navy/90 hover:text-navy py-7">Kontakt</a>
+    </nav>
+
+    <div class="flex items-center gap-3">
+      <a href="/kontakt" class="hidden sm:inline-flex btn btn-primary !py-2.5 !px-5 text-sm">Jetzt anfragen<span aria-hidden="true">→</span></a>
+      <button data-menu-btn type="button" aria-label="Menü öffnen" aria-expanded="false" class="lg:hidden grid place-items-center h-10 w-10 rounded-md border border-gray-200 text-navy">
+        <span class="i-bars block space-y-1.5">
+          <span class="block h-0.5 w-5 bg-navy"></span>
+          <span class="block h-0.5 w-5 bg-navy"></span>
+          <span class="block h-0.5 w-5 bg-navy"></span>
+        </span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Drawer -->
+  <div data-drawer class="lg:hidden fixed inset-x-0 top-[74px] bottom-0 z-40 bg-white overflow-y-auto hidden data-[open]:block">
+    <nav class="container-iec py-6" aria-label="Mobile Navigation">
+      <details class="border-b border-gray-200 py-2">
+        <summary class="flex items-center justify-between py-2 cursor-pointer list-none font-display font-medium text-navy">Produkte <span class="text-blue">+</span></summary>
+        <ul class="py-2">
+          {[...ventiltrieb, ...weitere].map((i) => (
+            <li><a href={i.href} class="block py-2.5 text-sm text-navy-light">{i.label}</a></li>
+          ))}
+        </ul>
+      </details>
+      <details class="border-b border-gray-200 py-2">
+        <summary class="flex items-center justify-between py-2 cursor-pointer list-none font-display font-medium text-navy">Anwendungen <span class="text-blue">+</span></summary>
+        <ul class="py-2">
+          {anwendungen.map((i) => (
+            <li><a href={i.href} class="block py-2.5 text-sm text-navy-light">{i.label}</a></li>
+          ))}
+        </ul>
+      </details>
+      <a href="/#philosophie" class="block border-b border-gray-200 py-4 font-display font-medium text-navy">Über IEC</a>
+      <a href="/kontakt" class="block border-b border-gray-200 py-4 font-display font-medium text-navy">Kontakt</a>
+      <a href="/kontakt" class="btn btn-primary w-full mt-6">Jetzt anfragen<span aria-hidden="true">→</span></a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const btn = document.querySelector('[data-menu-btn]');
+  const drawer = document.querySelector('[data-drawer]');
+  if (btn && drawer) {
+    const close = () => { drawer.removeAttribute('data-open'); document.body.style.overflow = ''; btn.setAttribute('aria-expanded', 'false'); };
+    btn.addEventListener('click', () => {
+      const open = drawer.hasAttribute('data-open');
+      if (open) { close(); }
+      else { drawer.setAttribute('data-open', ''); document.body.style.overflow = 'hidden'; btn.setAttribute('aria-expanded', 'true'); }
+    });
+    drawer.querySelectorAll('a').forEach((a) => a.addEventListener('click', close));
+  }
+</script>

@@ -1,0 +1,22 @@
+---
+import { company } from '../lib/site';
+interface Props {
+  title: string;
+  text?: string;
+  label?: string;
+  href?: string;
+}
+const { title, text, label = 'Jetzt anfragen', href = '/kontakt' } = Astro.props;
+---
+<section class="relative overflow-hidden ink-gradient text-white">
+  <div class="absolute inset-0 blueprint opacity-60"></div>
+  <div class="glow-blue absolute -bottom-40 right-0 opacity-90"></div>
+  <div class="container-iec relative z-10 py-20 md:py-28 text-center">
+    <h2 class="reveal text-3xl md:text-[2.9rem] leading-[1.08] text-white max-w-3xl mx-auto tracking-tight">{title}</h2>
+    {text && <p class="reveal mt-5 text-lg text-white/65 max-w-xl mx-auto leading-relaxed">{text}</p>}
+    <div class="reveal mt-9 flex flex-wrap items-center justify-center gap-4">
+      <a href={href} class="btn btn-on-dark">{label}<span aria-hidden="true">→</span></a>
+      <a href={`tel:${company.phone.replaceAll(' ', '')}`} class="btn btn-ghost-light">{company.phone}</a>
+    </div>
+  </div>
+</section>

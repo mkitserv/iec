@@ -1,0 +1,32 @@
+---
+interface Props {
+  title: string;
+  desc?: string;
+  href?: string;
+  tag?: string;
+  num?: string;
+  dark?: boolean;
+}
+const { title, desc, href, tag, num, dark = false } = Astro.props;
+const Tag = href ? 'a' : 'div';
+const base = dark
+  ? 'bg-white/[0.04] border-white/10 hover:border-blue-bright/50'
+  : 'bg-white border-gray-200 hover:border-blue/40 hover:shadow-[0_18px_40px_-22px_rgba(10,15,34,0.35)]';
+---
+<Tag
+  href={href}
+  class={`reveal group relative block h-full overflow-hidden rounded-xl border p-6 md:p-7 transition-all duration-300 hover:-translate-y-1 ${base}`}
+>
+  <span class="absolute inset-x-0 top-0 h-0.5 scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300 bg-blue"></span>
+  <div class="flex items-start justify-between gap-3">
+    {tag && <span class={`eyebrow ${dark ? 'eyebrow-light' : ''} mb-0`}>{tag}</span>}
+    {num && <span class="section-num">{num}</span>}
+  </div>
+  <h3 class={`mt-3 text-lg font-semibold tracking-tight ${dark ? 'text-white group-hover:text-blue-bright' : 'text-navy group-hover:text-blue'} transition-colors`}>{title}</h3>
+  {desc && <p class={`mt-2.5 text-sm leading-relaxed ${dark ? 'text-white/60' : 'text-navy-light'}`}>{desc}</p>}
+  {href && (
+    <span class={`mt-4 inline-flex items-center gap-1.5 text-sm font-semibold ${dark ? 'text-blue-bright' : 'text-blue'}`}>
+      Mehr erfahren <span class="transition-transform group-hover:translate-x-1">→</span>
+    </span>
+  )}
+</Tag>

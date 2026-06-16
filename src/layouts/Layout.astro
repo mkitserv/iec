@@ -1,0 +1,94 @@
+---
+import '@fontsource/poppins/300.css';
+import '@fontsource/poppins/400.css';
+import '@fontsource/poppins/500.css';
+import '@fontsource/poppins/600.css';
+import '@fontsource/poppins/700.css';
+import '@fontsource/dm-mono/400.css';
+import '@fontsource/dm-mono/500.css';
+import '../styles/global.css';
+
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import SchemaOrg from '../components/SchemaOrg.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  schemaType?: 'Organization' | 'Product' | 'ContactPage';
+  schemaExtra?: Record<string, unknown>;
+  breadcrumbs?: { name: string; href: string }[];
+  faq?: { q: string; a: string }[];
+}
+const { title, description, schemaType = 'Organization', schemaExtra, breadcrumbs, faq } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site).toString();
+---
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script is:inline>document.documentElement.classList.add('js');</script>
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#0A0F22" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content="de_DE" />
+    <meta property="og:site_name" content="IEC Germany" />
+    <meta name="generator" content={Astro.generator} />
+
+    <SchemaOrg type={schemaType} extra={schemaExtra} breadcrumbs={breadcrumbs} faq={faq} />
+  </head>
+  <body>
+    <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:z-[100] focus:m-3 focus:rounded focus:bg-navy focus:px-4 focus:py-2 focus:text-white">Zum Inhalt springen</a>
+    <Header />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer />
+
+    <script>
+      // Dezentes Scroll-Reveal
+      const io = new IntersectionObserver((entries) => {
+        for (const e of entries) {
+          if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); }
+        }
+      }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+      document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+
+      // Counter-Animation
+      const easeOut = (t: number) => 1 - Math.pow(1 - t, 3);
+      const animateCounter = (el: HTMLElement) => {
+        const target = parseFloat(el.dataset.target || '0');
+        const suffix = el.dataset.suffix || '';
+        const prefix = el.dataset.prefix || '';
+        const dur = 1400; const start = performance.now();
+        const step = (now: number) => {
+          const p = Math.min((now - start) / dur, 1);
+          const val = Math.round(target * easeOut(p));
+          el.textContent = prefix + val.toLocaleString('de-DE') + suffix;
+          if (p < 1) requestAnimationFrame(step);
+        };
+        requestAnimationFrame(step);
+      };
+      const co = new IntersectionObserver((entries) => {
+        for (const e of entries) {
+          if (e.isIntersecting) { animateCounter(e.target as HTMLElement); co.unobserve(e.target); }
+        }
+      }, { threshold: 0.6 });
+      document.querySelectorAll<HTMLElement>('[data-counter]').forEach((el) => co.observe(el));
+
+      // Header-Schatten beim Scrollen
+      const header = document.querySelector('[data-header]');
+      const onScroll = () => header?.toggleAttribute('data-scrolled', window.scrollY > 8);
+      onScroll();
+      window.addEventListener('scroll', onScroll, { passive: true });
+    </script>
+  </body>
+</html>

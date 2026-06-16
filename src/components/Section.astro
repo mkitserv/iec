@@ -1,0 +1,21 @@
+---
+interface Props {
+  bg?: 'white' | 'cream' | 'gray' | 'ink';
+  id?: string;
+  class?: string;
+}
+const { bg = 'white', id, class: cls = '' } = Astro.props;
+const isInk = bg === 'ink';
+const bgClass = {
+  white: 'bg-white',
+  cream: 'bg-cream',
+  gray: 'bg-gray-50',
+  ink: 'ink-gradient text-white/75',
+}[bg];
+---
+<section id={id} class={`relative ${isInk ? 'overflow-hidden' : ''} ${bgClass} ${cls}`}>
+  {isInk && <div class="absolute inset-0 blueprint opacity-50"></div>}
+  <div class={`container-iec relative z-10 py-16 md:py-24`}>
+    <slot />
+  </div>
+</section>

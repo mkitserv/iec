@@ -1,0 +1,118 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import Section from '../components/Section.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import ProductGrid from '../components/ProductGrid.astro';
+import Card from '../components/Card.astro';
+import MaterialTable from '../components/MaterialTable.astro';
+import FeatureSplit from '../components/FeatureSplit.astro';
+import ImageGallery from '../components/ImageGallery.astro';
+import FAQSection from '../components/FAQSection.astro';
+import CTABanner from '../components/CTABanner.astro';
+import { ventileTypes, ventileMaterials } from '../lib/data';
+
+const breadcrumbs = [
+  { name: 'Start', href: '/' },
+  { name: 'Motorenteile', href: '/motorenteile' },
+  { name: 'Ventile', href: '/ventile' },
+];
+
+const surfaces = [
+  { tag: 'Erste Wahl', title: 'Impulsplasmanitrieren', desc: 'Modernste Technik: optimaler Verschleißschutz, korrosionsbeständig bei Biogas, Schweröl und Deponiegas – und ökologisch.' },
+  { tag: 'Klassisch', title: 'Badnitrieren', desc: 'Bewährtes Verfahren mit guten Gleiteigenschaften und solidem Verschleißschutz.' },
+  { tag: 'Auslaufend', title: 'Hartchrom', desc: 'Früherer Standard, heute aus Umweltgründen nur noch selten eingesetzt.' },
+  { tag: 'Für Titan', title: 'Chromnitrid (CrN)', desc: 'Spezielle Beschichtung für Titanventile in hochdrehenden Motoren.' },
+];
+
+const technologies = [
+  { title: 'Vollventile', desc: 'Massiver Schaft – die robuste Standardbauform.' },
+  { title: 'Hohlventile, gebohrt', desc: 'Gebohrter Schaft zur Gewichtsreduktion.' },
+  { title: 'Hohlventile, Natrium-gefüllt', desc: 'Natriumfüllung führt Wärme vom Teller in den Schaft ab.' },
+  { title: 'Hohlventile, vergrößerter Hohlraum', desc: 'Gedreht und verschweißt für größere Wärmeabfuhr.' },
+  { title: 'Hohlventile, Hohlraum + Natrium', desc: 'Maximale Kühlung für thermisch höchstbelastete Auslassventile.' },
+];
+
+const faq = [
+  { q: 'Welche Werkstoffe eignen sich für Auslassventile?', a: 'Für die thermisch hoch belastete Auslassseite kommen austenitische Stähle wie 1.4871 (EV8) sowie die Nickelbasis-Superlegierung Nimonic 80A (2.4952) zum Einsatz – ausgelegt für Temperaturen bis rund 800 °C.' },
+  { q: 'Was ist ein natriumgefülltes Hohlventil?', a: 'Beim natriumgefüllten Hohlventil ist der Schafthohlraum zu etwa 60 % mit Natrium gefüllt. Im Betrieb transportiert das flüssige Natrium Wärme vom Ventilteller in den Schaft und senkt so die Tellertemperatur. Der Verschluss erfolgt durch Reibschweißen.' },
+  { q: 'Ab welcher Stückzahl fertigt IEC Ventile?', a: 'Ventile fertigen wir ab 4 Stück nach Ihrer Zeichnung oder Ihrem Muster – auch als Sonderanfertigung und für Oldtimer nach Originalvorlage.' },
+  { q: 'Welche Ventile eignen sich für Biogasmotoren?', a: 'Für Biogas empfehlen wir Auslassventile aus Nimonic 80A mit Impulsplasmanitrieren sowie Ventilführungen aus dem Sintermaterial IEC120S – widerstandsfähig gegen Schwefelverbindungen und Siloxane.' },
+];
+---
+<Layout
+  title="Ventile für Großmotoren & Motorsport | IEC Germany"
+  description="Gaswechsel-, Start- & Konstantdrosselventile aus Nimonic 80A, Stahl und Titan. Voll- und Hohlventile ab 4 Stück nach Zeichnung – plasmanitriert, geprüft."
+  schemaType="Product"
+  schemaExtra={{ name: 'Ventile für Großmotoren', description: 'Gaswechsel-, Start- und Konstantdrosselventile aus martensitischen, austenitischen, Nickelbasis- und Titan-Werkstoffen.' }}
+  breadcrumbs={breadcrumbs}
+  faq={faq}
+>
+  <Hero
+    eyebrow="Ventiltrieb · Ventile"
+    title="Ventile, die unter Höchstlast bestehen"
+    highlight="Höchstlast"
+    subtitle="Gaswechsel-, Start- und Konstantdrosselventile aus martensitischen, austenitischen, Nickelbasis- und Titan-Werkstoffen – ab 4 Stück nach Zeichnung oder Muster."
+    badges={['Ab 4 Stück', 'Sonderanfertigung', 'Biogas-tauglich', 'Made in Germany']}
+    primary={{ label: 'Jetzt anfragen', href: '/kontakt' }}
+    secondary={{ label: 'Werkstoffe ansehen', href: '#werkstoffe' }}
+    diagram={true}
+    layout="split"
+    breadcrumbs={breadcrumbs}
+  />
+
+  <Section bg="white">
+    <SectionHeading num="01" eyebrow="Ventiltypen" title="Für jeden Gaswechsel das richtige Ventil" intro="Ob Einlass, Auslass, Druckluftstart oder Motorbremse – wir fertigen den passenden Ventiltyp. Typische Maße reichen von 47 × 10 × 140 mm bis zu Marineventilen mit 100 × 24 × 400 mm." />
+    <ProductGrid items={ventileTypes} columns={2} />
+    <div class="mt-10">
+      <ImageGallery cols={3} items={[
+        { src: '/images/hohlventile.jpg', alt: 'Hohlventile von IEC, gebohrt und natriumgefüllt', caption: 'Hohlventile' },
+        { src: '/images/ventilfuehrungen.jpg', alt: 'Ventilführungen von IEC in verschiedenen Werkstoffen', caption: 'Ventilführungen' },
+        { src: '/images/ventiltrieb.jpg', alt: 'Komponenten des Ventiltriebs von IEC', caption: 'Ventiltriebssatz' },
+      ]} />
+    </div>
+  </Section>
+
+  <Section bg="cream" id="werkstoffe">
+    <SectionHeading num="02" eyebrow="Werkstoffe" title="Werkstoffe nach Belastung gewählt" intro="Von martensitischem Stahl über austenitische Legierungen bis zur Nickelbasis-Superlegierung Nimonic 80A und Titan TiAl6V4 – jeder Werkstoff für seinen Einsatz." />
+    <MaterialTable rows={ventileMaterials} caption="Bi-Metall-Ventile: Teller aus hochwarmfestem Stahl oder Nickelbasis, Schaft aus gehärtetem Stahl, verbunden durch Reibschweißen." />
+  </Section>
+
+  <Section bg="white">
+    <SectionHeading num="03" eyebrow="Oberflächentechnologien" title="Verschleißschutz für extreme Bedingungen" intro="Die richtige Oberfläche entscheidet über die Standzeit. Wir wählen das Verfahren passend zu Werkstoff und Einsatz." />
+    <div class="grid gap-5 sm:grid-cols-2">
+      {surfaces.map((s) => <Card tag={s.tag} title={s.title} desc={s.desc} />)}
+    </div>
+  </Section>
+
+  <Section bg="ink">
+    <SectionHeading dark num="04" eyebrow="Ventiltechnologien" title="Voll- und Hohlventile" intro="Mit zunehmender thermischer Belastung steigt der Aufwand zur Wärmeabfuhr – bis hin zum natriumgefüllten Hohlventil." />
+    <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {technologies.map((t, i) => <Card dark num={String(i + 1).padStart(2, '0')} title={t.title} desc={t.desc} />)}
+    </div>
+  </Section>
+
+  <Section bg="white">
+    <FeatureSplit
+      eyebrow="Sitzpanzerungen"
+      title="Gepanzerte Sitzflächen für lange Standzeiten"
+      body="Die Ventilsitzfläche ist ein Tribosystem unter Millionen Lastzyklen. Wir panzern sie mit hochlegierten Auftragswerkstoffen und härten das Schaftende induktiv oder per Flamme."
+      bullets={[
+        'Verfahren: Plasmaauftragsschweißen, Lasercladding, TIG, HVOF, Nitrierverfahren',
+        'Werkstoffe: Stellite 1/3/6/12/F, Colmonoy 56, Tribaloy T-400, Eisenbasis',
+        'Schaftende induktions- oder flammgehärtet',
+      ]}
+      image={{ src: '/images/vsr-marine.jpg', alt: 'Gepanzerter Ventilsitzring für Marinemotoren von IEC' }}
+      cta={{ label: 'Zur Anwendung Biogas', href: '/biogasanlagen' }}
+    />
+  </Section>
+
+  <Section bg="cream">
+    <FAQSection num="05" eyebrow="FAQ" title="Häufige Fragen zu Ventilen" intro="Werkstoffwahl, Hohlventile und Stückzahlen – die wichtigsten Antworten für Konstrukteure und Einkäufer." items={faq} />
+  </Section>
+
+  <CTABanner
+    title="Ventil nach Ihrer Spezifikation?"
+    text="Senden Sie uns Zeichnung oder Muster – Fertigung ab 4 Stück, inklusive Werkstoffberatung."
+  />
+</Layout>

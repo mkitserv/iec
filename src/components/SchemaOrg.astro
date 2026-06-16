@@ -1,0 +1,69 @@
+---
+import { company } from '../lib/site';
+
+interface Props {
+  type?: 'Organization' | 'Product' | 'ContactPage';
+  extra?: Record<string, unknown>;
+  breadcrumbs?: { name: string; href: string }[];
+  faq?: { q: string; a: string }[];
+}
+const { type = 'Organization', extra = {}, breadcrumbs, faq } = Astro.props;
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? 'https://new.iec-germany.de';
+
+const graph: Record<string, unknown>[] = [];
+
+graph.push({
+  '@type': 'Organization',
+  '@id': `${siteUrl}/#organization`,
+  name: company.name,
+  url: siteUrl + '/',
+  email: company.email,
+  telephone: company.phone,
+  foundingDate: String(company.founded),
+  vatID: company.vatId,
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: company.street,
+    postalCode: company.zip.replace('D-', ''),
+    addressLocality: company.city,
+    addressCountry: 'DE',
+  },
+});
+
+if (type === 'Product') {
+  graph.push({
+    '@type': 'Product',
+    name: (extra.name as string) ?? 'Motorenkomponente',
+    description: extra.description as string,
+    category: 'Motorenkomponenten',
+    brand: { '@type': 'Brand', name: 'IEC Germany' },
+    manufacturer: { '@id': `${siteUrl}/#organization` },
+  });
+}
+
+if (breadcrumbs && breadcrumbs.length > 0) {
+  graph.push({
+    '@type': 'BreadcrumbList',
+    itemListElement: breadcrumbs.map((c, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: c.name,
+      item: siteUrl + c.href,
+    })),
+  });
+}
+
+if (faq && faq.length > 0) {
+  graph.push({
+    '@type': 'FAQPage',
+    mainEntity: faq.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  });
+}
+
+const jsonld = { '@context': 'https://schema.org', '@graph': graph };
+---
+<script type="application/ld+json" set:html={JSON.stringify(jsonld)} />
