@@ -6,15 +6,32 @@ interface Props {
   align?: 'left' | 'center';
   dark?: boolean;
   num?: string;
+  layout?: 'stacked' | 'split';
 }
-const { eyebrow, title, intro, align = 'left', dark = false, num } = Astro.props;
+const { eyebrow, title, intro, align = 'left', dark = false, num, layout = 'stacked' } = Astro.props;
+const split = layout === 'split' && !!intro;
 const alignClass = align === 'center' ? 'text-center mx-auto items-center' : '';
 ---
-<div class={`reveal flex flex-col max-w-3xl mb-12 md:mb-14 ${alignClass}`}>
-  <div class={`flex items-baseline gap-4 ${align === 'center' ? 'justify-center' : ''}`}>
-    {num && <span class="section-num">{num}</span>}
-    {eyebrow && <p class={`eyebrow ${dark ? 'eyebrow-light' : ''}`}>{eyebrow}</p>}
+{split ? (
+  <div class="reveal grid lg:grid-cols-12 gap-7 lg:gap-12 items-end mb-12 md:mb-16">
+    <div class="lg:col-span-7">
+      <div class="flex items-center gap-4">
+        {num && <span class="section-num">{num}</span>}
+        {eyebrow && <p class={`eyebrow ${dark ? 'eyebrow-light' : ''}`}>{eyebrow}</p>}
+      </div>
+      <h2 class={`mt-5 h-1 ${dark ? 'text-white' : 'text-navy'}`}>{title}</h2>
+    </div>
+    <div class="lg:col-span-5">
+      <p class={`text-lg leading-relaxed ${dark ? 'text-white/65' : 'text-navy-light'} lg:border-l ${dark ? 'lg:border-white/15' : 'lg:border-gray-200'} lg:pl-6`}>{intro}</p>
+    </div>
   </div>
-  <h2 class={`mt-4 h-1 ${dark ? 'text-white' : 'text-navy'}`}>{title}</h2>
-  {intro && <p class={`mt-5 text-lg leading-relaxed ${dark ? 'text-white/65' : 'text-navy-light'}`}>{intro}</p>}
-</div>
+) : (
+  <div class={`reveal flex flex-col max-w-3xl mb-12 md:mb-14 ${alignClass}`}>
+    <div class={`flex items-center gap-4 ${align === 'center' ? 'justify-center' : ''}`}>
+      {num && <span class="section-num">{num}</span>}
+      {eyebrow && <p class={`eyebrow ${dark ? 'eyebrow-light' : ''}`}>{eyebrow}</p>}
+    </div>
+    <h2 class={`mt-5 h-1 ${dark ? 'text-white' : 'text-navy'}`}>{title}</h2>
+    {intro && <p class={`mt-5 text-lg leading-relaxed ${dark ? 'text-white/65' : 'text-navy-light'}`}>{intro}</p>}
+  </div>
+)}

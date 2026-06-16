@@ -10,6 +10,7 @@ import ImageGallery from '../components/ImageGallery.astro';
 import FAQSection from '../components/FAQSection.astro';
 import CTABanner from '../components/CTABanner.astro';
 import SpecMarquee from '../components/SpecMarquee.astro';
+import Pillars from '../components/Pillars.astro';
 import { productCategories, applications } from '../lib/data';
 import { usps } from '../lib/site';
 
@@ -67,20 +68,18 @@ const faq = [
   <SpecMarquee bg="cream" items={specItems} />
 
   <Section bg="white">
-    <SectionHeading num="01" eyebrow="Produkte" title="Komponenten für den gesamten Ventiltrieb" intro="Vom Ventil bis zur Einspritzdüse – sechs Produktfamilien für Groß- und Spezialmotoren, gefertigt nach Ihrer Spezifikation." />
+    <SectionHeading layout="split" num="01" eyebrow="Produkte" title="Komponenten für den gesamten Ventiltrieb" intro="Vom Ventil bis zur Einspritzdüse – sechs Produktfamilien für Groß- und Spezialmotoren, gefertigt nach Ihrer Spezifikation." />
     <ProductGrid items={productCategories} columns={3} />
   </Section>
 
   <Section bg="cream">
-    <SectionHeading num="02" eyebrow="Anwendungen" title="Für die anspruchsvollsten Einsatzbereiche" intro="Wo Temperatur, Korrosion und Dauerlast an die Grenzen gehen, liefern wir die passende Werkstoff- und Oberflächenlösung." />
+    <SectionHeading layout="split" num="02" eyebrow="Anwendungen" title="Für die anspruchsvollsten Einsatzbereiche" intro="Wo Temperatur, Korrosion und Dauerlast an die Grenzen gehen, liefern wir die passende Werkstoff- und Oberflächenlösung." />
     <ProductGrid items={applications} columns={2} />
   </Section>
 
   <Section bg="white">
-    <SectionHeading num="03" eyebrow="Warum IEC" title="Werkstoffexpertise, die den Unterschied macht" intro="Drei Prinzipien, die jede Komponente von IEC tragen." />
-    <div class="grid gap-5 md:grid-cols-3">
-      {pillars.map((p) => <Card tag={p.tag} title={p.title} desc={p.desc} />)}
-    </div>
+    <SectionHeading layout="split" num="03" eyebrow="Warum IEC" title="Werkstoffexpertise, die den Unterschied macht" intro="Drei Prinzipien, die jede Komponente von IEC trägt – von der Auslegung bis zur dokumentierten Prüfung." />
+    <Pillars items={pillars} />
   </Section>
 
   <Section bg="ink" spacious>
