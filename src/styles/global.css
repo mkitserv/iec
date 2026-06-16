@@ -31,6 +31,8 @@
   --font-mono: "DM Mono", ui-monospace, monospace;
 
   --radius-btn: 6px;
+  --radius-card: 12px;
+  --radius-media: 16px;
 }
 
 @layer base {
@@ -70,6 +72,13 @@
     content: ""; width: 1.6rem; height: 1px; background: currentColor; opacity: 0.7;
   }
   .eyebrow-light { color: var(--color-blue-bright); }
+
+  /* Verbindliche Typo-Skala — eine klare Treppe: Display > H1 > H2 > H3.
+     Alle Headlines nutzen NUR diese Stufen, keine ad-hoc text-[…rem] mehr. */
+  .h-display { font-family: var(--font-display); font-weight: 700; line-height: 1.04; letter-spacing: -0.025em; font-size: clamp(2.6rem, 5vw, 3.9rem); }
+  .h-1       { font-family: var(--font-display); font-weight: 600; line-height: 1.07; letter-spacing: -0.02em;  font-size: clamp(2rem, 3.4vw, 2.7rem); }
+  .h-2       { font-family: var(--font-display); font-weight: 600; line-height: 1.12; letter-spacing: -0.015em; font-size: clamp(1.5rem, 2.2vw, 1.9rem); }
+  .h-3       { font-family: var(--font-display); font-weight: 600; line-height: 1.25; letter-spacing: -0.01em;  font-size: 1.125rem; }
 
   /* Buttons */
   .btn {
@@ -142,4 +151,10 @@
     html.js .reveal { opacity: 1; transform: none; transition: none; }
     html { scroll-behavior: auto; }
   }
+}
+
+/* Dezente Bewegung in dunklen Flächen (driftendes Glow) */
+@keyframes iecGlowDrift { from { transform: translate(-20px, -10px); } to { transform: translate(40px, 30px); } }
+@media (prefers-reduced-motion: no-preference) {
+  .glow-blue::before { animation: iecGlowDrift 14s ease-in-out infinite alternate; }
 }

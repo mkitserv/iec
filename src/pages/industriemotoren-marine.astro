@@ -1,0 +1,121 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import TrustBar from '../components/TrustBar.astro';
+import Section from '../components/Section.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import ProductGrid from '../components/ProductGrid.astro';
+import Card from '../components/Card.astro';
+import FeatureSplit from '../components/FeatureSplit.astro';
+import FAQSection from '../components/FAQSection.astro';
+import CTABanner from '../components/CTABanner.astro';
+import { usps } from '../lib/site';
+
+const breadcrumbs = [
+  { name: 'Start', href: '/' },
+  { name: 'Industriemotoren & Marine', href: '/industriemotoren-marine' },
+];
+
+const faq = [
+  { q: 'Wie groß fertigt IEC Ventile für Großmotoren?', a: 'Für Industrie- und Marineanwendungen fertigen wir Großventile bis 100 mm Tellerdurchmesser. Damit decken wir den Ventiltrieb großvolumiger Diesel- und Schwerölmotoren ab, wie sie in Schiffsantrieben und stationären Industrieaggregaten eingesetzt werden.' },
+  { q: 'Was sind Startventile?', a: 'Startventile steuern den Druckluftstart großer Industrie- und Schiffsmotoren. Über sie wird Druckluft in die Zylinder geleitet, um den Motor anzudrehen. IEC fertigt diese Startventile passend zu Ihrem Motor – nach Zeichnung oder Muster.' },
+  { q: 'Welche Bedingungen muss der Ventiltrieb in der Marine aushalten?', a: 'Großmotoren in Industrie und Marine werden häufig mit Schweröl betrieben und arbeiten bei hohen Temperaturen. Hinzu kommen im maritimen Einsatz Seeluft und Korrosion. Die Komponenten müssen daher sowohl thermisch hoch belastbar als auch korrosionsbeständig ausgelegt sein.' },
+];
+---
+<Layout
+  title="Ventile für Industriemotoren & Marine | IEC Germany"
+  description="Großventile bis 100 mm Tellerdurchmesser und Startventile für Druckluftstart: IEC fertigt Ventiltriebskomponenten für Schweröl-Großmotoren in Industrie und Marine."
+  breadcrumbs={breadcrumbs}
+  faq={faq}
+>
+  <Hero
+    layout="centered"
+    eyebrow="Anwendung · Industrie & Marine"
+    title="Großventile für Schweröl, Hitze und Seeluft"
+    highlight="Schweröl, Hitze und Seeluft"
+    subtitle="Großmotoren in Industrie und Marine arbeiten unter härtesten Bedingungen. IEC fertigt Großventile bis 100 mm Tellerdurchmesser sowie Startventile für den Druckluftstart."
+    badges={['Bis 100 mm Teller', 'Startventile', 'Schweröltauglich']}
+    primary={{ label: 'Jetzt anfragen', href: '/kontakt' }}
+    breadcrumbs={breadcrumbs}
+  />
+
+  <TrustBar items={usps} />
+
+  <Section bg="white">
+    <SectionHeading
+      num="01"
+      eyebrow="Einsatzbedingungen"
+      title="Großmotoren unter Dauer- und Korrosionslast"
+      intro="Industrie- und Schiffsmotoren gehören zu den am stärksten beanspruchten Antrieben überhaupt. Schwerölbetrieb, hohe Temperaturen und – im maritimen Einsatz – Seeluft setzen dem Ventiltrieb dauerhaft zu."
+    />
+    <p class="reveal text-navy-light leading-relaxed max-w-3xl">
+      Großmotoren in Industrie und Marine werden vielfach mit Schweröl betrieben und laufen bei hohen Temperaturen über lange Betriebsphasen. Im maritimen Einsatz kommen Seeluft und Korrosion hinzu. Diese Kombination fordert vom Ventiltrieb sowohl thermische Belastbarkeit als auch Korrosionsbeständigkeit. IEC legt die Komponenten entsprechend aus und fertigt sie nach Ihrer Zeichnung oder Ihrem Muster – abgestimmt auf Ihren konkreten Motor.
+    </p>
+    <div class="reveal grid sm:grid-cols-3 gap-5 mt-10">
+      <Card title="Schwerölbetrieb" desc="Aggressive Verbrennungsprodukte beanspruchen Ventil, Sitz und Führung über die gesamte Standzeit." />
+      <Card title="Hohe Temperaturen" desc="Großvolumige Motoren erzeugen eine thermische Dauerlast, die hochwarmfeste Werkstoffe verlangt." />
+      <Card title="Seeluft & Korrosion" desc="Der maritime Einsatz fordert zusätzlich korrosionsbeständige Werkstoffe und Oberflächen." />
+    </div>
+  </Section>
+
+  <Section bg="cream">
+    <FeatureSplit
+      eyebrow="Großventile"
+      title="Ventile bis 100 mm Tellerdurchmesser"
+      body="Für den Ventiltrieb großvolumiger Industrie- und Schiffsmotoren fertigt IEC Großventile bis 100 mm Tellerdurchmesser. Die Auslegung erfolgt passend zu Werkstoffbedarf und Einsatzbedingungen Ihres Motors – ob Industrieaggregat oder Schiffsantrieb."
+      bullets={[
+        'Großventile bis 100 mm Tellerdurchmesser',
+        'Ausgelegt für Schwerölbetrieb und hohe Temperaturen',
+        'Fertigung nach Zeichnung oder Muster',
+      ]}
+      image={{ src: '/images/vsr-marine.jpg', alt: 'Großventil für Marine- und Industriemotoren von IEC' }}
+      cta={{ label: 'Zu den Ventilen', href: '/ventile' }}
+    />
+  </Section>
+
+  <Section bg="ink">
+    <SectionHeading
+      dark
+      num="02"
+      eyebrow="Ausführungen"
+      title="Großventile und Startventile"
+      intro="Für Industrie- und Marineanwendungen fertigt IEC zwei zentrale Ventilarten – das große Gaswechselventil und das Startventil für den Druckluftstart."
+    />
+    <div class="reveal grid sm:grid-cols-2 gap-5 mt-10">
+      <Card dark num="01" title="Großventile" desc="Gaswechselventile bis 100 mm Tellerdurchmesser für großvolumige Industrie- und Schiffsmotoren." />
+      <Card dark num="02" title="Startventile" desc="Für den Druckluftstart großer Motoren – leiten Druckluft zum Andrehen in die Zylinder." />
+    </div>
+  </Section>
+
+  <Section bg="white">
+    <SectionHeading
+      num="03"
+      eyebrow="Passende Produkte"
+      title="Verwandte Komponenten"
+      intro="Den Ventiltrieb für Industrie- und Marinemotoren ergänzen wir mit aufeinander abgestimmten Komponenten. Gerne stimmen wir die Auslegung auf Ihren Motor ab."
+    />
+    <ProductGrid
+      columns={3}
+      items={[
+        { title: 'Ventile', desc: 'Großventile bis 100 mm Teller und Startventile.', href: '/ventile' },
+        { title: 'Ventilsitzringe', desc: 'Gepanzert für lange Standzeiten unter Dauerlast.', href: '/ventilsitzringe' },
+        { title: 'Gasmotoren', desc: 'Ventiltriebskomponenten für stationäre Gasmotoren.', href: '/gasmotoren' },
+      ]}
+    />
+  </Section>
+
+  <Section bg="cream">
+    <FAQSection
+      num="04"
+      eyebrow="FAQ"
+      title="Häufige Fragen zu Industrie- und Marinemotoren"
+      intro="Großventile, Startventile und Einsatzbedingungen für Schweröl-Großmotoren – kurz erklärt."
+      items={faq}
+    />
+  </Section>
+
+  <CTABanner
+    title="Ventiltrieb für Ihren Großmotor?"
+    text="Senden Sie uns Zeichnung oder Muster – wir fertigen Großventile und Startventile für Industrie und Marine."
+  />
+</Layout>

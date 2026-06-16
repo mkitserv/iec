@@ -1,0 +1,27 @@
+---
+// Engineering-Spec-Ticker: langsam laufende Werkstoffnummern/Verfahren — distinktiv, zeigt Tiefe.
+interface Props { items: string[]; bg?: 'cream' | 'ink' }
+const { items, bg = 'cream' } = Astro.props;
+const dark = bg === 'ink';
+---
+<div class={`spec-marquee relative overflow-hidden border-y ${dark ? 'ink-gradient border-white/10' : 'bg-cream border-gray-200'}`} aria-hidden="true">
+  <div class="spec-track flex w-max">
+    {[0, 1].map(() => (
+      <ul class="flex shrink-0 items-center">
+        {items.map((it) => (
+          <li class={`flex items-center font-mono text-xs uppercase tracking-[0.18em] ${dark ? 'text-white/55' : 'text-navy-light'}`}>
+            <span class="px-6 py-3.5">{it}</span>
+            <span class="text-red">/</span>
+          </li>
+        ))}
+      </ul>
+    ))}
+  </div>
+</div>
+
+<style>
+  @keyframes iecMarquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  .spec-track { animation: iecMarquee 45s linear infinite; }
+  .spec-marquee:hover .spec-track { animation-play-state: paused; }
+  @media (prefers-reduced-motion: reduce) { .spec-track { animation: none; } }
+</style>

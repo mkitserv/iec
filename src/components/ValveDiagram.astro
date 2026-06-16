@@ -4,7 +4,7 @@
 interface Props { class?: string }
 const { class: cls = '' } = Astro.props;
 ---
-<svg viewBox="0 0 460 520" class={cls} role="img" aria-label="Technische Konstruktionszeichnung eines Ventils" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 460 520" class={`vd ${cls}`} role="img" aria-label="Technische Konstruktionszeichnung eines Ventils" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <linearGradient id="valveFill" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0%" stop-color="#2E7DF6" stop-opacity="0.35" />
@@ -42,7 +42,7 @@ const { class: cls = '' } = Astro.props;
   <ellipse cx="230" cy="424" rx="78" ry="9" fill="none" stroke="rgba(156,194,255,0.5)" stroke-width="1.2" />
 
   <!-- Bemaßung: Gesamtlänge (links) -->
-  <g stroke="rgba(255,255,255,0.4)" stroke-width="1" fill="none">
+  <g class="dim" stroke="rgba(255,255,255,0.4)" stroke-width="1" fill="none">
     <line x1="92" y1="50" x2="92" y2="424" />
     <path d="M88 56 L92 48 L96 56" />
     <path d="M88 418 L92 426 L96 418" />
@@ -52,7 +52,7 @@ const { class: cls = '' } = Astro.props;
   <text x="84" y="240" fill="#9cc2ff" font-family="'DM Mono', monospace" font-size="13" transform="rotate(-90 84 240)" text-anchor="middle">L = 140 mm</text>
 
   <!-- Bemaßung: Tellerdurchmesser (unten) -->
-  <g stroke="rgba(255,255,255,0.4)" stroke-width="1" fill="none">
+  <g class="dim" stroke="rgba(255,255,255,0.4)" stroke-width="1" fill="none">
     <line x1="138" y1="452" x2="322" y2="452" />
     <path d="M144 448 L136 452 L144 456" />
     <path d="M316 448 L324 452 L316 456" />
@@ -76,3 +76,14 @@ const { class: cls = '' } = Astro.props;
     <text x="262" y="408" fill="rgba(156,194,255,0.75)">45&#176;</text>
   </g>
 </svg>
+
+<style>
+  @keyframes iecDraw { to { stroke-dashoffset: 0; } }
+  @keyframes iecFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+  .vd { animation: iecFloat 8s ease-in-out infinite; }
+  .vd .dim line, .vd .dim path { stroke-dasharray: 420; stroke-dashoffset: 420; animation: iecDraw 1.6s cubic-bezier(.16,1,.3,1) forwards 0.35s; }
+  @media (prefers-reduced-motion: reduce) {
+    .vd { animation: none; }
+    .vd .dim line, .vd .dim path { animation: none; stroke-dashoffset: 0; }
+  }
+</style>

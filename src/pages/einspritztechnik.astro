@@ -1,0 +1,103 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import Section from '../components/Section.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import ProductGrid from '../components/ProductGrid.astro';
+import Card from '../components/Card.astro';
+import FAQSection from '../components/FAQSection.astro';
+import CTABanner from '../components/CTABanner.astro';
+
+const breadcrumbs = [
+  { name: 'Start', href: '/' },
+  { name: 'Motorenteile', href: '/motorenteile' },
+  { name: 'Einspritztechnik', href: '/einspritztechnik' },
+];
+
+const components = [
+  { title: 'Einspritzdüsen', desc: 'Düsen für die präzise Kraftstoffzufuhr im Verbrennungsmotor.' },
+  { title: 'Pumpenteile', desc: 'Komponenten der Einspritzpumpe für die Kraftstoffförderung.' },
+  { title: 'Injektoren', desc: 'Injektoren als zentrale Baugruppe der Einspritztechnik.' },
+];
+
+const faq = [
+  { q: 'Welche Komponenten der Einspritztechnik liefert IEC?', a: 'IEC liefert Komponenten der Einspritztechnik wie Einspritzdüsen, Pumpenteile und Injektoren für den Motorenbau.' },
+  { q: 'Fertigt IEC nach Zeichnung oder Muster?', a: 'Ja. Wir fertigen Komponenten der Einspritztechnik nach Ihrer Zeichnung oder nach Ihrem Muster. Senden Sie uns Ihre Unterlagen über das Kontaktformular zu.' },
+  { q: 'Gehört die Einspritztechnik zu den Motorenteilen von IEC?', a: 'Ja. Die Einspritztechnik ist Teil unseres Programms an Motorenteilen. Einen Überblick über alle Komponenten finden Sie auf der Seite Motorenteile.' },
+];
+---
+
+<Layout
+  title="Einspritztechnik: Düsen, Pumpenteile & Injektoren | IEC"
+  description="Komponenten der Einspritztechnik von IEC: Einspritzdüsen, Pumpenteile und Injektoren für den Motorenbau – gefertigt nach Ihrer Zeichnung oder nach Muster."
+  schemaType="Product"
+  breadcrumbs={breadcrumbs}
+  faq={faq}
+>
+  <Hero
+    layout="centered"
+    eyebrow="Motorenteile · Einspritztechnik"
+    title="Komponenten der Einspritztechnik"
+    highlight="Einspritztechnik"
+    subtitle="IEC liefert Einspritzdüsen, Pumpenteile und Injektoren für den Motorenbau – gefertigt nach Ihrer Zeichnung oder nach Ihrem Muster."
+    badges={['Einspritzdüsen', 'Pumpenteile', 'Injektoren']}
+    primary={{ label: 'Jetzt anfragen', href: '/kontakt' }}
+    breadcrumbs={breadcrumbs}
+  />
+
+  <Section bg="white">
+    <SectionHeading
+      num="01"
+      eyebrow="Programm"
+      title="Düsen, Pumpenteile und Injektoren"
+      intro="Die Einspritztechnik bringt den Kraftstoff präzise in den Brennraum. IEC liefert die zentralen Komponenten dieser Baugruppe für den Motorenbau."
+    />
+    <ProductGrid items={components} columns={3} />
+  </Section>
+
+  <Section bg="ink">
+    <SectionHeading
+      dark
+      num="02"
+      eyebrow="Fertigung"
+      title="Nach Zeichnung oder Muster"
+      intro="Wir fertigen Komponenten der Einspritztechnik nach Ihren Vorgaben. Senden Sie uns Ihre Zeichnung oder Ihr Muster – wir erstellen Ihnen ein Angebot."
+    />
+    <div class="reveal grid gap-5 sm:grid-cols-3 mt-10">
+      <Card dark title="Einspritzdüsen" desc="Düsen für die präzise Kraftstoffzufuhr." />
+      <Card dark title="Pumpenteile" desc="Komponenten der Einspritzpumpe für die Kraftstoffförderung." />
+      <Card dark title="Injektoren" desc="Injektoren als zentrale Baugruppe der Einspritztechnik." />
+    </div>
+  </Section>
+
+  <Section bg="cream">
+    <SectionHeading
+      num="03"
+      eyebrow="Passende Produkte"
+      title="Weitere Motorenteile"
+      intro="Die Einspritztechnik ist Teil unseres Programms an Motorenteilen. Den vollständigen Überblick finden Sie auf der jeweiligen Seite."
+    />
+    <ProductGrid
+      columns={2}
+      items={[
+        { title: 'Motorenteile', desc: 'Übersicht über das gesamte Komponentenprogramm von IEC.', href: '/motorenteile' },
+        { title: 'Kontakt', desc: 'Senden Sie uns Zeichnung oder Muster für Ihr Angebot.', href: '/kontakt' },
+      ]}
+    />
+  </Section>
+
+  <Section bg="white">
+    <FAQSection
+      num="04"
+      eyebrow="FAQ"
+      title="Häufige Fragen zur Einspritztechnik"
+      intro="Komponenten, Fertigung und Einordnung im Programm – die wichtigsten Antworten."
+      items={faq}
+    />
+  </Section>
+
+  <CTABanner
+    title="Komponenten der Einspritztechnik gesucht?"
+    text="Senden Sie uns Ihre Zeichnung oder Ihr Muster – wir erstellen Ihnen ein Angebot."
+  />
+</Layout>

@@ -57,7 +57,17 @@ const canonical = new URL(Astro.url.pathname, Astro.site).toString();
       // Dezentes Scroll-Reveal
       const io = new IntersectionObserver((entries) => {
         for (const e of entries) {
-          if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); }
+          if (e.isIntersecting) {
+            const el = e.target as HTMLElement;
+            const p = el.parentElement;
+            if (p && p.hasAttribute('data-stagger')) {
+              const sibs = Array.from(p.children).filter((c) => c.classList.contains('reveal'));
+              const i = sibs.indexOf(el);
+              if (i > 0) el.style.transitionDelay = Math.min(i, 8) * 70 + 'ms';
+            }
+            el.classList.add('is-visible');
+            io.unobserve(el);
+          }
         }
       }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
       document.querySelectorAll('.reveal').forEach((el) => io.observe(el));

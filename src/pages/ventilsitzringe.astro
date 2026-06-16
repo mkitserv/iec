@@ -1,0 +1,113 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import Section from '../components/Section.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import ProductGrid from '../components/ProductGrid.astro';
+import Card from '../components/Card.astro';
+import MaterialTable from '../components/MaterialTable.astro';
+import FeatureSplit from '../components/FeatureSplit.astro';
+import FAQSection from '../components/FAQSection.astro';
+import CTABanner from '../components/CTABanner.astro';
+
+const breadcrumbs = [
+  { name: 'Start', href: '/' },
+  { name: 'Motorenteile', href: '/motorenteile' },
+  { name: 'Ventilsitzringe', href: '/ventilsitzringe' },
+];
+
+const materials = [
+  { nr: '', name: 'Stellite 1', use: 'Kobaltbasis-Hartlegierung, höchster Verschleiß- und Warmhärteschutz.' },
+  { nr: '', name: 'Stellite 3', use: 'Kobaltbasis, sehr hohe Härte für stark abrasive Beanspruchung.' },
+  { nr: '', name: 'Stellite 6', use: 'Kobaltbasis, bewährter Allrounder mit guter Zähigkeit.' },
+  { nr: '', name: 'Stellite 12', use: 'Kobaltbasis, hohe Härte und Verschleißfestigkeit.' },
+  { nr: '', name: 'Stellite 19', use: 'Kobaltbasis-Hartlegierung für hoch belastete Sitzflächen.' },
+  { nr: '1.2599', name: 'GGz 1.2599', use: 'Warmarbeitsstahl für thermisch belastete Sitzringe.' },
+  { nr: '', name: 'Tribaloy T-400', use: 'Kobaltbasis-Legierung mit hoher Gleit- und Verschleißfestigkeit.' },
+  { nr: '', name: 'Tribaloy J10', use: 'Tribaloy-Variante für anspruchsvolle Tribosysteme.' },
+  { nr: '', name: 'PL12MV', use: 'Hochlegierter Werkzeugstahl für verschleißfeste Sitzringe.' },
+  { nr: '', name: 'X210Cr12 (PL34)', use: 'Hochkohlenstoff-Chromstahl, sehr verschleißfest.' },
+  { nr: '', name: 'X45CrSi9-3 (PL33M10)', use: 'Hitzebeständiger Ventilstahl für warmfeste Anwendungen.' },
+  { nr: '', name: 'CrNi 6040', use: 'Chrom-Nickel-Werkstoff für korrosive Einsatzbedingungen.' },
+];
+
+const variants = [
+  { tag: 'Kühlung', title: 'Wassergekühlte Ventilsitzringe', desc: 'Integrierte Wasserkühlung führt die Wärme aus der Sitzfläche ab – für thermisch höchstbelastete Großmotoren.' },
+  { tag: 'Standzeit', title: 'Ventilsitzringe mit Panzerung', desc: 'Auftraggepanzerte Sitzfläche aus hochlegierten Werkstoffen für maximale Standzeiten unter Millionen Lastzyklen.' },
+  { tag: 'Oberfläche', title: 'Verzinnte Außenkontur', desc: 'Verzinnung der Außenkontur für sicheren Sitz und Korrosionsschutz im Pressverband.' },
+];
+
+const related = [
+  { title: 'Ventile', desc: 'Gaswechsel-, Start- und Konstantdrosselventile – der Partner des Sitzrings im Tribosystem.', href: '/ventile', tag: 'Ventiltrieb' },
+  { title: 'Ventilführungen', desc: 'Präzise Schaftführung in verschleißfesten Werkstoffen – passend zum Sitzring abgestimmt.', href: '/ventilfuehrungen', tag: 'Ventiltrieb' },
+];
+
+const faq = [
+  { q: 'Welche Aufgabe hat ein Ventilsitzring?', a: 'Der Ventilsitzring dichtet zusammen mit dem Ventil den Verbrennungsraum ab. Er bildet ein Tribosystem, das über Millionen Lastzyklen thermisch und mechanisch hoch beansprucht wird.' },
+  { q: 'Welche Werkstoffe verwendet IEC für Ventilsitzringe?', a: 'Je nach Belastung kommen Kobaltbasis-Legierungen wie Stellite 1/3/6/12/19 und Tribaloy T-400 und J10 sowie Stähle wie GGz 1.2599, PL12MV, X210Cr12 (PL34), X45CrSi9-3 (PL33M10) und CrNi 6040 zum Einsatz.' },
+  { q: 'Gibt es gekühlte oder gepanzerte Ausführungen?', a: 'Ja. Wir fertigen wassergekühlte Ventilsitzringe für thermisch höchstbelastete Motoren sowie Sitzringe mit Panzerung der Sitzfläche für besonders lange Standzeiten.' },
+  { q: 'Wie wird die Außenkontur behandelt?', a: 'Die Außenkontur kann verzinnt werden – das verbessert den Sitz im Pressverband und schützt vor Korrosion. Gefertigt wird nach Ihrer Zeichnung oder Ihrem Muster.' },
+];
+---
+<Layout
+  title="Ventilsitzringe für Großmotoren & Marine | IEC Germany"
+  description="Wassergekühlte und gepanzerte Ventilsitzringe aus Stellite, Tribaloy und Werkzeugstahl. Verzinnte Außenkontur, Fertigung nach Zeichnung oder Muster vom Hersteller."
+  schemaType="Product"
+  schemaExtra={{ name: 'Ventilsitzringe', description: 'Wassergekühlte und gepanzerte Ventilsitzringe aus Kobaltbasis-Legierungen und Werkzeugstählen nach Zeichnung oder Muster.' }}
+  breadcrumbs={breadcrumbs}
+  faq={faq}
+>
+  <Hero
+    eyebrow="Ventiltrieb · Ventilsitzringe"
+    title="Ventilsitzringe, die dauerhaft dichthalten"
+    highlight="dichthalten"
+    subtitle="Der Sitzring dichtet zusammen mit dem Ventil den Verbrennungsraum ab – ein Tribosystem unter Millionen Lastzyklen. Wir fertigen ihn nach Ihrer Zeichnung oder Ihrem Muster."
+    badges={['Wassergekühlt', 'Mit Panzerung', 'Verzinnte Außenkontur', 'Made in Germany']}
+    primary={{ label: 'Jetzt anfragen', href: '/kontakt' }}
+    secondary={{ label: 'Werkstoffe ansehen', href: '#werkstoffe' }}
+    layout="centered"
+    breadcrumbs={breadcrumbs}
+  />
+
+  <Section bg="white">
+    <FeatureSplit
+      eyebrow="Funktion"
+      title="Das Tribosystem im Brennraum"
+      body="Ventilsitzring und Ventil bilden gemeinsam das Tribosystem, das den Verbrennungsraum abdichtet. Bei jedem Arbeitstakt schlägt das Ventil auf den Sitzring – über die Lebensdauer eines Motors sind das Millionen Lastzyklen unter hoher thermischer und mechanischer Belastung. Werkstoff, Geometrie und Oberfläche entscheiden über die Standzeit."
+      bullets={[
+        'Abdichtung des Verbrennungsraums gemeinsam mit dem Ventil',
+        'Ausgelegt für Millionen Lastzyklen unter Hochlast',
+        'Verzinnung der Außenkontur für sicheren Sitz im Pressverband',
+        'Fertigung nach Ihrer Zeichnung oder Ihrem Muster',
+      ]}
+      image={{ src: '/images/vsr-marine.jpg', alt: 'Ventilsitzring von IEC für Marinemotoren' }}
+      cta={{ label: 'Passende Ventile ansehen', href: '/ventile' }}
+    />
+  </Section>
+
+  <Section bg="cream" id="werkstoffe">
+    <SectionHeading num="01" eyebrow="Werkstoffe" title="Werkstoffe nach Belastung gewählt" intro="Von Kobaltbasis-Hartlegierungen wie Stellite und Tribaloy bis zu hochlegierten Werkzeug- und Ventilstählen – wir wählen den Werkstoff passend zu Temperatur, Verschleiß und Medium." />
+    <MaterialTable rows={materials} caption="Werkstoffauswahl je nach thermischer und tribologischer Beanspruchung. Weitere Werkstoffe auf Anfrage." />
+  </Section>
+
+  <Section bg="ink">
+    <SectionHeading dark num="02" eyebrow="Ausführungen" title="Gekühlt, gepanzert, verzinnt" intro="Mit steigender thermischer Belastung steigt der Aufwand zur Wärmeabfuhr und zum Verschleißschutz – wir fertigen die passende Ausführung." />
+    <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {variants.map((v, i) => <Card dark num={String(i + 1).padStart(2, '0')} tag={v.tag} title={v.title} desc={v.desc} />)}
+    </div>
+  </Section>
+
+  <Section bg="white">
+    <SectionHeading num="03" eyebrow="Verwandte Produkte" title="Passend zum Ventiltrieb" intro="Ventilsitzring, Ventil und Führung wirken im Verbund. Wir liefern die Komponenten aufeinander abgestimmt." />
+    <ProductGrid items={related} columns={2} />
+  </Section>
+
+  <Section bg="cream">
+    <FAQSection num="04" eyebrow="FAQ" title="Häufige Fragen zu Ventilsitzringen" intro="Funktion, Werkstoffe und Ausführungen – die wichtigsten Antworten für Konstrukteure und Einkäufer." items={faq} />
+  </Section>
+
+  <CTABanner
+    title="Ventilsitzring nach Ihrer Spezifikation?"
+    text="Senden Sie uns Zeichnung oder Muster – inklusive Werkstoffberatung, auch wassergekühlt oder gepanzert."
+  />
+</Layout>

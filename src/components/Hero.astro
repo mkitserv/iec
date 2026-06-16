@@ -49,7 +49,7 @@ const isSplit = layout === 'split' && (diagram || !!image);
 
       {eyebrow && <p class={`eyebrow eyebrow-light mb-5 ${isSplit ? '' : 'justify-center'}`}>{eyebrow}</p>}
 
-      <h1 class="text-[2.6rem] leading-[1.04] sm:text-5xl lg:text-[3.9rem] font-bold text-white tracking-tight">
+      <h1 class="h-display text-white">
         {parts ? (<>{parts[0]}<span class="text-blue-bright">{parts[1]}</span>{parts[2]}</>) : title}
       </h1>
 

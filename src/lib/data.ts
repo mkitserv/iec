@@ -10,11 +10,11 @@ export type ProductCategory = {
 
 export const productCategories: ProductCategory[] = [
   { title: 'Ventiltrieb', desc: 'Ventile, Führungen, Sitzringe, Federn, Kegelstücke, Federteller, Drehvorrichtungen.', href: '/ventile', tag: 'Kernkompetenz' },
-  { title: 'Kolben & Kurbeltrieb', desc: 'Kolben, Kolbenringe, Zylinderlaufbuchsen, Kolbenbolzen, Kurbelwellen, Pleuelstangen.', href: '/motorenteile' },
-  { title: 'Dichtungen', desc: 'Zylinderkopfdichtungen und komplette Dichtsätze.', href: '/motorenteile' },
-  { title: 'Nockenwellen & Zubehör', desc: 'Nockenwellen, Stößel, Kipphebel – Fertigung nach Zeichnung oder Muster.', href: '/motorenteile' },
-  { title: 'Zylinderköpfe & Kurbelgehäuse', desc: 'Zylinderköpfe und Kurbelgehäuse auf Anfrage.', href: '/motorenteile' },
-  { title: 'Einspritztechnik', desc: 'Einspritzdüsen, Pumpenteile und Injektoren.', href: '/motorenteile' },
+  { title: 'Kolben & Kurbeltrieb', desc: 'Kolben, Kolbenringe, Zylinderlaufbuchsen, Kolbenbolzen, Kurbelwellen, Pleuelstangen.', href: '/kolben-kurbeltrieb' },
+  { title: 'Dichtungen', desc: 'Zylinderkopfdichtungen und komplette Dichtsätze.', href: '/dichtungen' },
+  { title: 'Nockenwellen & Zubehör', desc: 'Nockenwellen, Stößel, Kipphebel – Fertigung nach Zeichnung oder Muster.', href: '/nockenwellen-zubehoer' },
+  { title: 'Zylinderköpfe & Kurbelgehäuse', desc: 'Zylinderköpfe und Kurbelgehäuse auf Anfrage.', href: '/zylinderkoepfe-kurbelgehaeuse' },
+  { title: 'Einspritztechnik', desc: 'Einspritzdüsen, Pumpenteile und Injektoren.', href: '/einspritztechnik' },
 ];
 
 export type Application = {
@@ -24,10 +24,10 @@ export type Application = {
 };
 
 export const applications: Application[] = [
-  { title: 'Gasmotoren', desc: 'Komplette Ventiltriebssätze für die Energieerzeugung aus Erdgas. Werkstoff IEC120S.', href: '/biogasanlagen' },
+  { title: 'Gasmotoren', desc: 'Komplette Ventiltriebssätze für die Energieerzeugung aus Erdgas. Werkstoff IEC120S.', href: '/gasmotoren' },
   { title: 'Biogasanlagen', desc: 'Korrosive Gase, Schwefelverbindungen, Siloxane: IEC120S, Nimonic 80A, Plasmanitrieren.', href: '/biogasanlagen' },
-  { title: 'Industriemotoren & Marine', desc: 'Großmotoren, Schweröl, hohe Temperaturen, Seeluft. Ventile bis 100 mm, Startventile.', href: '/biogasanlagen' },
-  { title: 'Oldtimer & Rennsport', desc: 'Ab 1 Stück nach Original. Traktoren, PKW, Motorräder. Titan-Ventile TiAl6V4.', href: '/biogasanlagen' },
+  { title: 'Industriemotoren & Marine', desc: 'Großmotoren, Schweröl, hohe Temperaturen, Seeluft. Ventile bis 100 mm, Startventile.', href: '/industriemotoren-marine' },
+  { title: 'Oldtimer & Rennsport', desc: 'Ab 1 Stück nach Original. Traktoren, PKW, Motorräder. Titan-Ventile TiAl6V4.', href: '/oldtimer-rennsport' },
 ];
 
 export const homeStats = [

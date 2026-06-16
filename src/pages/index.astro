@@ -9,8 +9,11 @@ import Card from '../components/Card.astro';
 import ImageGallery from '../components/ImageGallery.astro';
 import FAQSection from '../components/FAQSection.astro';
 import CTABanner from '../components/CTABanner.astro';
+import SpecMarquee from '../components/SpecMarquee.astro';
 import { productCategories, applications } from '../lib/data';
 import { usps } from '../lib/site';
+
+const specItems = ['1.4718 · HNV3', '1.4871 · EV8', '1.4882', 'Nimonic 80A · 2.4952', 'TiAl6V4 · Titan', 'IEC120S', 'Impulsplasmanitrieren', 'Lasercladding', 'HVOF', 'Stellite', 'ab 1 Stück', 'Made in Germany', 'seit 1984'];
 
 const stats = [
   { value: '40+', label: 'Jahre Erfahrung', count: { to: 40, suffix: '+' } },
@@ -61,6 +64,8 @@ const faq = [
 
   <TrustBar items={usps} />
 
+  <SpecMarquee bg="cream" items={specItems} />
+
   <Section bg="white">
     <SectionHeading num="01" eyebrow="Produkte" title="Komponenten für den gesamten Ventiltrieb" intro="Vom Ventil bis zur Einspritzdüse – sechs Produktfamilien für Groß- und Spezialmotoren, gefertigt nach Ihrer Spezifikation." />
     <ProductGrid items={productCategories} columns={3} />
@@ -78,8 +83,8 @@ const faq = [
     </div>
   </Section>
 
-  <Section bg="ink">
-    <SectionHeading dark num="04" eyebrow="Entwicklung & Prüfung" title="Wissen, das man messen kann." intro="Von der FEM-Auslegung bis zur zerstörungsfreien Prüfung: IEC entwickelt und prüft im eigenen Haus – mit eigenem Werkstofflabor und lückenloser Dokumentation nach Ihren Vorgaben." />
+  <Section bg="ink" spacious>
+    <SectionHeading dark align="center" num="04" eyebrow="Entwicklung & Prüfung" title="Wissen, das man messen kann." intro="Von der FEM-Auslegung bis zur zerstörungsfreien Prüfung: IEC entwickelt und prüft im eigenen Haus – mit eigenem Werkstofflabor und lückenloser Dokumentation nach Ihren Vorgaben." />
     <ImageGallery dark cols={3} items={labItems} />
     <p class="reveal mt-8 max-w-3xl leading-relaxed text-white/60">
       Jede sicherheitsrelevante Komponente wird zu 100 % geprüft – metallografisch, per Farbeindring- und Magnetpulverprüfung, Röntgen, Computertomografie und Ultraschall. So entstehen Bauteile, die unter Höchstlast bestehen.

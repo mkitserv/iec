@@ -1,0 +1,127 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import Section from '../components/Section.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import ProductGrid from '../components/ProductGrid.astro';
+import Card from '../components/Card.astro';
+import MaterialTable from '../components/MaterialTable.astro';
+import FeatureSplit from '../components/FeatureSplit.astro';
+import FAQSection from '../components/FAQSection.astro';
+import CTABanner from '../components/CTABanner.astro';
+
+const breadcrumbs = [
+  { name: 'Start', href: '/' },
+  { name: 'Motorenteile', href: '/motorenteile' },
+  { name: 'Ventilführungen', href: '/ventilfuehrungen' },
+];
+
+const materials = [
+  { nr: 'GG25', name: 'Grauguss GG25', use: 'Standardwerkstoff für Ventilführungen mit bewährten Gleiteigenschaften.' },
+  { nr: 'GGP70', name: 'Grauguss GGP70', use: 'Erhöhter Phosphorgehalt – verschleißoptimiert für höhere Beanspruchung.' },
+  { nr: 'CW713R', name: 'Sondermessing CuZn37Mn3Al2PbSi', use: 'Hoher Verschleißwiderstand, korrosionsbeständig und sehr gute Wärmeleitfähigkeit.' },
+  { nr: 'IEC120S', name: 'Sintermaterial IEC120S', use: 'Pulvermetallurgisch, perlitisch-ferritische Matrix mit Karbiden – für Biogas- und Deponiegasmotoren.' },
+];
+
+const variants = [
+  { title: 'Mit Ölbohrungen', desc: 'Gezielte Schmierung des Ventilschafts über eingebrachte Ölbohrungen.' },
+  { title: 'Mit Schmiernuten', desc: 'Eingearbeitete Nuten verteilen den Schmierfilm gleichmäßig über die Führungslänge.' },
+  { title: 'Applikationsspezifisch', desc: 'Geometrie und Detailmerkmale nach Ihrer Zeichnung oder Ihrem Muster gefertigt.' },
+];
+
+const faq = [
+  { q: 'Welche Aufgabe hat eine Ventilführung?', a: 'Die Ventilführung führt das Ventil präzise im Zylinderkopf und hält es exakt in der Achse von Ventilsitz und Schaft. Zusätzlich leitet sie einen erheblichen Teil der Wärme vom Ventilschaft an den Zylinderkopf ab und trägt so zur thermischen Entlastung des Ventils bei.' },
+  { q: 'Welche Werkstoffe verwendet IEC für Ventilführungen?', a: 'Standard ist Grauguss GG25, für höhere Beanspruchung der verschleißoptimierte GGP70. Für hohe Verschleiß- und Korrosionsanforderungen bei gleichzeitig guter Wärmeleitfähigkeit setzen wir das Sondermessing CW713R (CuZn37Mn3Al2PbSi) ein. Für Biogas- und Deponiegasmotoren verwenden wir unser pulvermetallurgisches Sintermaterial IEC120S.' },
+  { q: 'Welche Ventilführungen eignen sich für Biogasmotoren?', a: 'Für Biogas- und Deponiegasanwendungen empfehlen wir Ventilführungen aus dem Sintermaterial IEC120S. Seine perlitisch-ferritische Matrix mit eingelagerten Karbiden ist auf die aggressiven Bedingungen dieser Anwendungen ausgelegt.' },
+  { q: 'Kann die Oberfläche nachbehandelt werden?', a: 'Ja. Auf Wunsch behandeln wir die Ventilführungen durch Nitrocarburieren für zusätzlichen Verschleißschutz.' },
+];
+---
+
+<Layout
+  title="Ventilführungen für Großmotoren & Biogas | IEC Germany"
+  description="Ventilführungen aus GG25, GGP70, Sondermessing CW713R und Sintermaterial IEC120S – mit Ölbohrungen, Schmiernuten und Nitrocarburieren, nach Zeichnung oder Muster."
+  schemaType="Product"
+  breadcrumbs={breadcrumbs}
+  faq={faq}
+>
+  <Hero
+    layout="centered"
+    eyebrow="Ventiltrieb · Ventilführungen"
+    title="Ventilführungen, die führen und kühlen"
+    highlight="führen und kühlen"
+    subtitle="Präzise Führung des Ventils im Zylinderkopf und Wärmeabfuhr vom Ventilschaft – gefertigt aus dem passenden Werkstoff nach Ihrer Zeichnung oder Ihrem Muster."
+    badges={['GG25 / GGP70', 'CW713R', 'IEC120S', 'Nach Zeichnung']}
+    primary={{ label: 'Jetzt anfragen', href: '/kontakt' }}
+    breadcrumbs={breadcrumbs}
+  />
+
+  <Section bg="white">
+    <FeatureSplit
+      eyebrow="Funktion"
+      title="Führung und Wärmeabfuhr in einem Bauteil"
+      body="Die Ventilführung hält das Ventil exakt in seiner Achse und sorgt so für einen sauberen, dichten Sitz auf dem Ventilsitzring. Zugleich übernimmt sie eine zweite, entscheidende Aufgabe: Sie leitet einen Großteil der Wärme vom heißen Ventilschaft an den Zylinderkopf ab und entlastet das Ventil thermisch. Werkstoffwahl und Geometrie der Führung bestimmen daher unmittelbar die Standzeit des gesamten Ventiltriebs."
+      bullets={[
+        'Präzise Führung des Ventils im Zylinderkopf',
+        'Wärmeabfuhr vom Ventilschaft an den Zylinderkopf',
+        'Fertigung nach Zeichnung oder Muster',
+      ]}
+      image={{ src: '/images/ventilfuehrungen.jpg', alt: 'Ventilführungen von IEC in verschiedenen Werkstoffen' }}
+      cta={{ label: 'Zu den Ventilen', href: '/ventile' }}
+    />
+  </Section>
+
+  <Section bg="cream" id="werkstoffe">
+    <SectionHeading
+      num="01"
+      eyebrow="Werkstoffe"
+      title="Vom Grauguss bis zum Sintermaterial"
+      intro="Je nach Beanspruchung wählen wir den passenden Werkstoff – von der bewährten Standardlösung bis zur Speziallösung für korrosive Gase."
+    />
+    <MaterialTable rows={materials} caption="Für besonders verschleißbeanspruchte Anwendungen lässt sich die Oberfläche zusätzlich durch Nitrocarburieren härten." />
+  </Section>
+
+  <Section bg="ink">
+    <SectionHeading
+      dark
+      num="02"
+      eyebrow="Ausführungen"
+      title="Varianten und Oberfläche"
+      intro="Über den Werkstoff hinaus passen wir Schmierung und Detailgeometrie an Ihre Anwendung an. Für zusätzlichen Verschleißschutz nitrocarburieren wir die Oberfläche."
+    />
+    <div class="grid gap-5 sm:grid-cols-3">
+      {variants.map((v, i) => <Card dark num={String(i + 1).padStart(2, '0')} title={v.title} desc={v.desc} />)}
+    </div>
+  </Section>
+
+  <Section bg="white">
+    <SectionHeading
+      num="03"
+      eyebrow="Passende Produkte"
+      title="Komponenten für den Ventiltrieb"
+      intro="Ventilführungen wirken im System mit Ventil und Sitzring zusammen. Gerne liefern wir die abgestimmten Komponenten aus einer Hand."
+    />
+    <ProductGrid
+      columns={3}
+      items={[
+        { title: 'Ventile', desc: 'Gaswechselventile aus Stahl, Nickelbasis und Titan.', href: '/ventile' },
+        { title: 'Ventilsitzringe', desc: 'Gepanzert für lange Standzeiten.', href: '/ventilsitzringe' },
+        { title: 'Biogasanlagen', desc: 'IEC120S-Führungen für Biogas- und Deponiegasmotoren.', href: '/biogasanlagen' },
+      ]}
+    />
+  </Section>
+
+  <Section bg="cream">
+    <FAQSection
+      num="04"
+      eyebrow="FAQ"
+      title="Häufige Fragen zu Ventilführungen"
+      intro="Funktion, Werkstoffe und Oberflächen – die wichtigsten Antworten für Konstrukteure und Einkäufer."
+      items={faq}
+    />
+  </Section>
+
+  <CTABanner
+    title="Ventilführungen nach Ihrer Spezifikation?"
+    text="Senden Sie uns Zeichnung oder Muster – wir beraten Sie zur Werkstoff- und Oberflächenwahl."
+  />
+</Layout>

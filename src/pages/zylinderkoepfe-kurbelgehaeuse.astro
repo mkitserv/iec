@@ -1,0 +1,113 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import Section from '../components/Section.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import ProductGrid from '../components/ProductGrid.astro';
+import Card from '../components/Card.astro';
+import FeatureSplit from '../components/FeatureSplit.astro';
+import FAQSection from '../components/FAQSection.astro';
+import CTABanner from '../components/CTABanner.astro';
+
+const breadcrumbs = [
+  { name: 'Start', href: '/' },
+  { name: 'Motorenteile', href: '/motorenteile' },
+  { name: 'Zylinderköpfe & Kurbelgehäuse', href: '/zylinderkoepfe-kurbelgehaeuse' },
+];
+
+const faq = [
+  { q: 'Fertigt IEC Zylinderköpfe und Kurbelgehäuse?', a: 'Ja. Zylinderköpfe und Kurbelgehäuse fertigen wir auf Anfrage – nach Ihrer Zeichnung oder nach vorhandenem Muster. Senden Sie uns Ihre Unterlagen, und wir stimmen die Ausführung mit Ihnen ab.' },
+  { q: 'Brauche ich eine Zeichnung oder genügt ein Muster?', a: 'Beides ist möglich. Liegt eine technische Zeichnung vor, fertigen wir danach. Ist keine Zeichnung vorhanden, können wir auch nach einem vorhandenen Bauteil als Muster arbeiten – etwa bei Ersatzteilen für ältere oder seltene Motoren.' },
+  { q: 'Liefert IEC auch passende Komponenten für den Zylinderkopf?', a: 'Ja. Den Zylinderkopf-Bereich können wir mit weiteren Ventiltrieb-Komponenten und Dichtungen ergänzen, sodass Sie aufeinander abgestimmte Teile aus einer Hand erhalten. Sprechen Sie uns auf Ihren konkreten Bedarf an.' },
+];
+---
+
+<Layout
+  title="Zylinderköpfe & Kurbelgehäuse nach Maß | IEC Germany"
+  description="Zylinderköpfe und Kurbelgehäuse fertigt IEC auf Anfrage – nach Ihrer Zeichnung oder nach Muster. Motorenteile aus einer Hand, ergänzt um passende Dichtungen."
+  schemaType="Product"
+  breadcrumbs={breadcrumbs}
+  faq={faq}
+>
+  <Hero
+    layout="centered"
+    eyebrow="Motorenteile · Zylinderköpfe & Kurbelgehäuse"
+    title="Zylinderköpfe & Kurbelgehäuse nach Ihrer Vorgabe"
+    highlight="nach Ihrer Vorgabe"
+    subtitle="Zylinderköpfe und Kurbelgehäuse fertigen wir auf Anfrage – nach Zeichnung oder nach vorhandenem Muster. Klären Sie Ihren Bedarf direkt mit uns."
+    badges={['Auf Anfrage', 'Nach Zeichnung', 'Nach Muster']}
+    primary={{ label: 'Jetzt anfragen', href: '/kontakt' }}
+    breadcrumbs={breadcrumbs}
+  />
+
+  <Section bg="white">
+    <SectionHeading
+      num="01"
+      eyebrow="Funktion"
+      title="Das tragende Gerüst des Motors"
+      intro="Zylinderkopf und Kurbelgehäuse bilden das Grundgerüst jedes Verbrennungsmotors – sie nehmen die Kräfte des Ventiltriebs und des Kurbeltriebs auf und müssen exakt gefertigt sein."
+    />
+    <p class="reveal text-navy-light leading-relaxed max-w-3xl">
+      Der Zylinderkopf schließt den Brennraum nach oben ab und führt Ventile, Kanäle und Dichtflächen zusammen. Das Kurbelgehäuse trägt die Kurbelwelle und nimmt die Kräfte des Kurbeltriebs auf. Beide Bauteile bestimmen Maßhaltigkeit und Dichtigkeit des Motors maßgeblich mit. IEC fertigt diese Komponenten auf Anfrage – immer abgestimmt auf Ihren konkreten Motor und Ihre Vorgaben.
+    </p>
+  </Section>
+
+  <Section bg="ink">
+    <SectionHeading
+      dark
+      num="02"
+      eyebrow="Fertigung"
+      title="Nach Zeichnung oder Muster"
+      intro="Wir fertigen Zylinderköpfe und Kurbelgehäuse nicht aus dem Katalog, sondern nach Ihren Unterlagen. So erhalten Sie genau das Bauteil, das Ihr Motor benötigt."
+    />
+    <div class="reveal grid sm:grid-cols-2 gap-5 mt-10">
+      <Card dark num="01" title="Fertigung nach Zeichnung" desc="Liegt eine technische Zeichnung vor, fertigen wir das Bauteil exakt nach Ihren Vorgaben." />
+      <Card dark num="02" title="Fertigung nach Muster" desc="Ohne Zeichnung arbeiten wir nach einem vorhandenen Bauteil als Muster – ideal für Ersatzteile älterer oder seltener Motoren." />
+    </div>
+  </Section>
+
+  <Section bg="cream">
+    <FeatureSplit
+      eyebrow="Aus einer Hand"
+      title="Zylinderkopf-Komponenten und Dichtungen ergänzen"
+      body="Zylinderkopf und Kurbelgehäuse stehen nicht für sich allein. Auf Wunsch ergänzen wir die passenden Ventiltrieb-Komponenten und Dichtungen, sodass Sie aufeinander abgestimmte Teile aus einer Hand erhalten – das vereinfacht Beschaffung und Abstimmung."
+      bullets={[
+        'Fertigung auf Anfrage – nach Zeichnung oder Muster',
+        'Ergänzbar um Ventiltrieb-Komponenten und Dichtungen',
+        'Abgestimmte Motorenteile aus einer Hand',
+      ]}
+      cta={{ label: 'Zu den Dichtungen', href: '/dichtungen' }}
+    />
+  </Section>
+
+  <Section bg="white">
+    <SectionHeading
+      num="03"
+      eyebrow="Passende Produkte"
+      title="Verwandte Komponenten"
+      intro="Diese Bereiche ergänzen Zylinderkopf und Kurbelgehäuse. Gerne stimmen wir den Lieferumfang auf Ihren Motor ab."
+    />
+    <ProductGrid
+      columns={2}
+      items={[
+        { title: 'Dichtungen', desc: 'Passende Dichtungen für Zylinderkopf und Motor.', href: '/dichtungen' },
+        { title: 'Motorenteile', desc: 'Das gesamte Spektrum unserer Motorenkomponenten im Überblick.', href: '/motorenteile' },
+      ]}
+    />
+  </Section>
+
+  <Section bg="cream">
+    <FAQSection
+      num="04"
+      eyebrow="FAQ"
+      title="Häufige Fragen zu Zylinderköpfen & Kurbelgehäusen"
+      intro="Fertigung auf Anfrage, Zeichnung oder Muster und ergänzende Komponenten – kurz beantwortet."
+      items={faq}
+    />
+  </Section>
+
+  <CTABanner
+    title="Zylinderkopf oder Kurbelgehäuse benötigt?"
+    text="Senden Sie uns Zeichnung oder Muster – wir fertigen auf Anfrage und beraten Sie zu passenden Komponenten."
+  />
+</Layout>

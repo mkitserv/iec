@@ -1,0 +1,88 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import Section from '../components/Section.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import ProductGrid from '../components/ProductGrid.astro';
+import Card from '../components/Card.astro';
+import FeatureSplit from '../components/FeatureSplit.astro';
+import FAQSection from '../components/FAQSection.astro';
+import CTABanner from '../components/CTABanner.astro';
+
+const breadcrumbs = [
+  { name: 'Start', href: '/' },
+  { name: 'Motorenteile', href: '/motorenteile' },
+  { name: 'Ventilfederteller', href: '/ventilfederteller' },
+];
+
+const ausfuehrungen = [
+  { title: 'Werkstoff nach Einsatz', desc: 'Wir fertigen Federteller aus verschiedenen Werkstoffen – passend zu Belastung und Anwendung Ihres Motors.' },
+  { title: 'Nach Zeichnung', desc: 'Fertigung exakt nach Ihrer Zeichnung – für Neukonstruktionen ebenso wie für Ersatz- und Nachbauteile.' },
+  { title: 'Nach Muster', desc: 'Liegt keine Zeichnung vor, fertigen wir Ihren Federteller nach vorhandenem Originalmuster.' },
+];
+
+const related = [
+  { title: 'Ventilkegelstücke', desc: 'Übertragen die Federkraft formschlüssig vom Federteller auf den Ventilschaft.', href: '/ventilkegelstuecke', tag: 'Verwandt' },
+  { title: 'Ventilfedern', desc: 'Schließfeder des Ventils – als System mit Federteller und Kegelstücken abgestimmt.', href: '/ventilfedern', tag: 'Verwandt' },
+];
+
+const faq = [
+  { q: 'Welche Funktion hat der Ventilfederteller?', a: 'Der Ventilfederteller nimmt die Ventilfeder auf und überträgt deren Kraft über die Kegelstücke auf das Ventil. So hält er die Feder in Position und schließt den Kraftfluss im Ventiltrieb.' },
+  { q: 'Aus welchen Werkstoffen fertigt IEC Federteller?', a: 'Wir fertigen Ventilfederteller aus verschiedenen Werkstoffen für alle Einsatzgebiete – ausgewählt passend zur Belastung Ihrer Anwendung.' },
+  { q: 'Fertigt IEC auch ohne Zeichnung?', a: 'Ja. Wir fertigen Federteller nach Ihrer Zeichnung oder, falls keine vorliegt, nach einem vorhandenen Originalmuster.' },
+];
+---
+<Layout
+  title="Ventilfederteller nach Zeichnung & Muster | IEC Germany"
+  description="Ventilfederteller vom Hersteller IEC: nimmt die Feder auf und überträgt die Kraft über die Kegelstücke aufs Ventil. Fertigung in diversen Werkstoffen nach Zeichnung oder Muster."
+  schemaType="Product"
+  schemaExtra={{ name: 'Ventilfederteller', description: 'Ventilfederteller zur Aufnahme der Ventilfeder, gefertigt in verschiedenen Werkstoffen nach Zeichnung oder Muster.' }}
+  breadcrumbs={breadcrumbs}
+  faq={faq}
+>
+  <Hero
+    eyebrow="Ventiltrieb · Ventilfederteller"
+    title="Ventilfederteller, die die Federkraft sicher führen"
+    highlight="Federkraft"
+    subtitle="Der Federteller nimmt die Ventilfeder auf und überträgt ihre Kraft über die Kegelstücke auf das Ventil – gefertigt in verschiedenen Werkstoffen nach Zeichnung oder Muster."
+    badges={['Diverse Werkstoffe', 'Nach Zeichnung', 'Nach Muster', 'Made in Germany']}
+    primary={{ label: 'Jetzt anfragen', href: '/kontakt' }}
+    layout="centered"
+    breadcrumbs={breadcrumbs}
+  />
+
+  <Section bg="white">
+    <FeatureSplit
+      eyebrow="Funktion"
+      title="Bindeglied zwischen Feder und Ventil"
+      body="Der Ventilfederteller nimmt die Ventilfeder auf und überträgt deren Kraft über die Kegelstücke auf das Ventil. Damit hält er die Feder zuverlässig in Position und schließt den Kraftfluss im Ventiltrieb. Wir fertigen Federteller aus verschiedenen Werkstoffen für alle Einsatzgebiete."
+      bullets={[
+        'Aufnahme und Führung der Ventilfeder',
+        'Kraftübertragung über die Kegelstücke auf den Ventilschaft',
+        'Werkstoffauswahl passend zur Belastung Ihrer Anwendung',
+      ]}
+      cta={{ label: 'Zu den Ventilkegelstücken', href: '/ventilkegelstuecke' }}
+    />
+  </Section>
+
+  <Section bg="ink">
+    <SectionHeading dark num="01" eyebrow="Ausführungen" title="Gefertigt nach Ihren Vorgaben" intro="Ob nach Zeichnung oder nach vorhandenem Muster – wir liefern den passenden Federteller im richtigen Werkstoff." />
+    <div class="grid gap-5 sm:grid-cols-3">
+      {ausfuehrungen.map((a, i) => <Card dark num={String(i + 1).padStart(2, '0')} title={a.title} desc={a.desc} />)}
+    </div>
+  </Section>
+
+  <Section bg="cream">
+    <SectionHeading num="02" eyebrow="Im System" title="Passende Komponenten des Ventiltriebs" intro="Federteller, Kegelstücke und Feder arbeiten als abgestimmtes System – aus einer Hand." />
+    <ProductGrid items={related} columns={2} />
+  </Section>
+
+  <Section bg="white">
+    <FAQSection num="03" eyebrow="FAQ" title="Häufige Fragen zu Ventilfedertellern" intro="Funktion, Werkstoffe und Fertigung – die wichtigsten Antworten kompakt." items={faq} />
+  </Section>
+
+  <CTABanner
+    title="Ventilfederteller nach Ihrer Spezifikation?"
+    text="Senden Sie uns Zeichnung oder Muster – wir fertigen im passenden Werkstoff für Ihre Anwendung."
+  />
+</Layout>

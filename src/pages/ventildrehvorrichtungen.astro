@@ -1,0 +1,123 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import Section from '../components/Section.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import ProductGrid from '../components/ProductGrid.astro';
+import Card from '../components/Card.astro';
+import FeatureSplit from '../components/FeatureSplit.astro';
+import FAQSection from '../components/FAQSection.astro';
+import CTABanner from '../components/CTABanner.astro';
+
+const breadcrumbs = [
+  { name: 'Start', href: '/' },
+  { name: 'Motorenteile', href: '/motorenteile' },
+  { name: 'Ventildrehvorrichtungen', href: '/ventildrehvorrichtungen' },
+];
+
+const benefits = [
+  { title: 'Gleichmäßiger Verschleiß', desc: 'Die ständige Drehbewegung verteilt die Belastung über den gesamten Umfang von Ventilsitz und Schaft.' },
+  { title: 'Weniger Ablagerungen', desc: 'Durch die Rotation lösen sich Verbrennungsrückstände am Dichtsitz und setzen sich nicht fest.' },
+  { title: 'Längere Standzeiten', desc: 'Reduzierter Verschleiß an Sitz und Schaft verlängert die Lebensdauer des gesamten Ventiltriebs.' },
+];
+
+const types = [
+  { title: 'Rotocap (TRW)', desc: 'Bewährte Ventildrehvorrichtung des Herstellers TRW.' },
+  { title: 'Turnomat (MWH)', desc: 'Ventildrehvorrichtung des Herstellers MWH.' },
+  { title: 'Fertigung nach Vorgabe', desc: 'Fertigung nach Ihrer Zeichnung oder Ihrem Muster.' },
+];
+
+const faq = [
+  { q: 'Wozu dient eine Ventildrehvorrichtung?', a: 'Eine Ventildrehvorrichtung versetzt das Ventil im Betrieb in eine ständige, langsame Drehbewegung. Dadurch verteilt sich die Belastung gleichmäßig über den Umfang, der Verschleiß an Sitz und Schaft sinkt und Ablagerungen am Dichtsitz werden reduziert.' },
+  { q: 'Welche Fabrikate liefert IEC?', a: 'Wir fertigen und handeln Ventildrehvorrichtungen. Zu den gängigen Marken zählen Rotocap von TRW und Turnomat von MWH. Auf Wunsch fertigen wir auch nach Ihrer Zeichnung oder Ihrem Muster.' },
+  { q: 'Fertigt IEC nach Zeichnung oder Muster?', a: 'Ja. Neben dem Handel mit gängigen Fabrikaten fertigen wir Ventildrehvorrichtungen nach Ihrer Zeichnung oder einem vorhandenen Muster.' },
+];
+---
+<Layout
+  title="Ventildrehvorrichtungen: Rotocap & Turnomat | IEC Germany"
+  description="Ventildrehvorrichtungen für gleichmäßigen Verschleiß am Ventiltrieb. IEC fertigt und handelt – gängige Fabrikate Rotocap (TRW) und Turnomat (MWH)."
+  schemaType="Product"
+  breadcrumbs={breadcrumbs}
+  faq={faq}
+>
+  <Hero
+    layout="centered"
+    eyebrow="Ventiltrieb · Ventildrehvorrichtungen"
+    title="Ventildrehvorrichtungen für gleichmäßigen Verschleiß"
+    highlight="gleichmäßigen Verschleiß"
+    subtitle="Ventildrehvorrichtungen versetzen das Ventil im Betrieb in eine ständige, langsame Drehbewegung – das reduziert Verschleiß und Ablagerungen an Sitz und Schaft. IEC fertigt und handelt gängige Fabrikate."
+    badges={['Rotocap (TRW)', 'Turnomat (MWH)', 'Fertigung & Handel']}
+    primary={{ label: 'Jetzt anfragen', href: '/kontakt' }}
+    breadcrumbs={breadcrumbs}
+  />
+
+  <Section bg="white">
+    <FeatureSplit
+      eyebrow="Funktion"
+      title="Ständige Drehung schützt Sitz und Schaft"
+      body="Eine Ventildrehvorrichtung dreht das Ventil bei jedem Hub ein Stück weiter, sodass es sich im Betrieb kontinuierlich und langsam um die eigene Achse bewegt. Diese Rotation verteilt die thermische und mechanische Belastung gleichmäßig über den Umfang des Ventils – statt dass eine Stelle dauerhaft am stärksten beansprucht wird."
+      bullets={[
+        'Reduziert den Verschleiß an Ventilsitz und Schaft',
+        'Verhindert festsitzende Ablagerungen am Dichtsitz',
+        'Trägt zu langen Standzeiten des Ventiltriebs bei',
+      ]}
+      cta={{ label: 'Zu den Ventilen', href: '/ventile' }}
+    />
+  </Section>
+
+  <Section bg="ink">
+    <SectionHeading
+      dark
+      num="01"
+      eyebrow="Wirkung"
+      title="Warum die Drehbewegung wichtig ist"
+      intro="Ohne Rotation trifft das Ventil bei jedem Schließvorgang nahezu an derselben Stelle auf den Sitz. Die ständige Drehung verteilt diese Belastung und hält die Dichtflächen sauber."
+    />
+    <div class="grid gap-5 sm:grid-cols-3">
+      {benefits.map((b, i) => <Card dark num={String(i + 1).padStart(2, '0')} title={b.title} desc={b.desc} />)}
+    </div>
+  </Section>
+
+  <Section bg="cream">
+    <SectionHeading
+      num="02"
+      eyebrow="Fabrikate"
+      title="Gängige Fabrikate und Fertigung nach Vorgabe"
+      intro="Wir fertigen und handeln Ventildrehvorrichtungen. Neben den gängigen Marken Rotocap und Turnomat fertigen wir auch nach Ihrer Zeichnung oder Ihrem Muster."
+    />
+    <div class="grid gap-5 sm:grid-cols-3">
+      {types.map((t) => <Card title={t.title} desc={t.desc} />)}
+    </div>
+  </Section>
+
+  <Section bg="white">
+    <SectionHeading
+      num="03"
+      eyebrow="Passende Produkte"
+      title="Komponenten rund um den Ventilsitz"
+      intro="Ventildrehvorrichtungen wirken im Zusammenspiel mit Ventil und Ventilsitzring. Gerne stimmen wir die Auslegung auf Ihren Ventiltrieb ab."
+    />
+    <ProductGrid
+      columns={2}
+      items={[
+        { title: 'Ventile', desc: 'Voll- und Hohlventile aus Stahl, Nickelbasis und Titan.', href: '/ventile' },
+        { title: 'Ventilsitzringe', desc: 'Gepanzerte Sitzringe für lange Standzeiten.', href: '/ventilsitzringe' },
+      ]}
+    />
+  </Section>
+
+  <Section bg="cream">
+    <FAQSection
+      num="04"
+      eyebrow="FAQ"
+      title="Häufige Fragen zu Ventildrehvorrichtungen"
+      intro="Funktion, Fabrikate und Fertigung – die wichtigsten Antworten kurz erklärt."
+      items={faq}
+    />
+  </Section>
+
+  <CTABanner
+    title="Ventildrehvorrichtung für Ihren Motor?"
+    text="Senden Sie uns Zeichnung, Muster oder das gewünschte Fabrikat – wir fertigen und handeln."
+  />
+</Layout>

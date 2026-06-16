@@ -1,0 +1,126 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import Section from '../components/Section.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import ProductGrid from '../components/ProductGrid.astro';
+import Card from '../components/Card.astro';
+import FeatureSplit from '../components/FeatureSplit.astro';
+import FAQSection from '../components/FAQSection.astro';
+import CTABanner from '../components/CTABanner.astro';
+
+const breadcrumbs = [
+  { name: 'Start', href: '/' },
+  { name: 'Motorenteile', href: '/motorenteile' },
+  { name: 'Ventilkegelstücke', href: '/ventilkegelstuecke' },
+];
+
+const variants = [
+  { tag: 'Bauart', title: 'Klemmend', desc: 'Die Kegelstücke verbinden Schaft und Federteller fest – die klassische, drehfeste Befestigung.' },
+  { tag: 'Bauart', title: 'Nicht-klemmend', desc: 'Lässt das Ventil frei rotieren und sorgt zusammen mit Drehvorrichtungen für gleichmäßigen Verschleiß an Sitz und Teller.' },
+  { tag: 'Herstellung', title: 'Gedreht', desc: 'Zerspanend gefertigt – flexibel auch für kleine Stückzahlen und Sondergeometrien.' },
+  { tag: 'Herstellung', title: 'Kaltgeprägt', desc: 'Umformend hergestellt für hohe Maßgenauigkeit bei größeren Serien.' },
+];
+
+const surfaces = [
+  { title: 'Nitriert', desc: 'Erhöht die Härte der Funktionsflächen und verbessert den Verschleißschutz an der Schaftkerbe.' },
+  { title: 'Chromnitrid (CrN)', desc: 'Hartstoffbeschichtung für besonders hohe Verschleißbeständigkeit unter Dauerlast.' },
+];
+
+const faq = [
+  { q: 'Was ist die Aufgabe eines Ventilkegelstücks?', a: 'Ventilkegelstücke halten das Ventil im Federteller und übertragen die Federkraft auf den Ventilschaft. Sie sichern die Verbindung zwischen Schaft und Federteller und legen fest, ob das Ventil drehfest gehalten wird oder frei rotieren kann.' },
+  { q: 'Worin unterscheiden sich klemmende und nicht-klemmende Kegelstücke?', a: 'Klemmende Kegelstücke fixieren das Ventil drehfest. Nicht-klemmende Kegelstücke erlauben eine freie Drehbewegung des Ventils und sorgen – häufig im Zusammenspiel mit Ventildrehvorrichtungen – für gleichmäßigen Verschleiß an Ventilsitz und Teller.' },
+  { q: 'Wie werden die Kegelstücke hergestellt und behandelt?', a: 'Wir fertigen Ventilkegelstücke gedreht oder kaltgeprägt. Zum Schutz der Funktionsflächen werden sie nitriert oder mit Chromnitrid (CrN) beschichtet.' },
+  { q: 'Fertigt IEC Kegelstücke nach Vorlage?', a: 'Ja. Wir fertigen Ventilkegelstücke nach Ihrer Zeichnung oder Ihrem Muster – passend zu Ventilschaft, Federteller und Einbausituation.' },
+];
+---
+<Layout
+  title="Ventilkegelstücke nach Zeichnung & Muster | IEC Germany"
+  description="Klemmende und nicht-klemmende Ventilkegelstücke, gedreht oder kaltgeprägt, nitriert oder Chromnitrid-beschichtet. Fertigung nach Zeichnung oder Muster."
+  schemaType="Product"
+  schemaExtra={{ name: 'Ventilkegelstücke', description: 'Klemmende und nicht-klemmende Ventilkegelstücke, gedreht oder kaltgeprägt, mit Nitrier- oder Chromnitrid-Oberfläche.' }}
+  breadcrumbs={breadcrumbs}
+  faq={faq}
+>
+  <Hero
+    layout="centered"
+    eyebrow="Ventiltrieb · Ventilkegelstücke"
+    title="Ventilkegelstücke, die das Ventil sicher halten"
+    highlight="sicher halten"
+    subtitle="Klemmende und nicht-klemmende Ausführungen, gedreht oder kaltgeprägt, mit nitrierten oder Chromnitrid-beschichteten Funktionsflächen – nach Ihrer Zeichnung oder Ihrem Muster."
+    badges={['Klemmend & nicht-klemmend', 'Gedreht oder kaltgeprägt', 'Nach Zeichnung']}
+    primary={{ label: 'Jetzt anfragen', href: '/kontakt' }}
+    breadcrumbs={breadcrumbs}
+  />
+
+  <Section bg="white">
+    <FeatureSplit
+      eyebrow="Funktion"
+      title="Die Verbindung zwischen Schaft und Federteller"
+      body="Ventilkegelstücke sitzen zwischen Ventilschaft und Federteller und halten das Ventil sicher in Position. Sie bestimmen, wie das Ventil geführt wird: Klemmende Kegelstücke fixieren es drehfest, nicht-klemmende erlauben eine freie Drehbewegung des Ventils und sorgen so für gleichmäßigen Verschleiß an Sitz und Teller."
+      bullets={[
+        'Klemmend für eine drehfeste Verbindung',
+        'Nicht-klemmend für freie Ventilrotation',
+        'Abgestimmt auf Schaft, Federteller und Einbausituation',
+      ]}
+      imageLabel="Ventilkegelstück"
+      cta={{ label: 'Zu den Federtellern', href: '/ventilfederteller' }}
+    />
+  </Section>
+
+  <Section bg="cream">
+    <SectionHeading
+      num="01"
+      eyebrow="Ausführungen"
+      title="Bauart und Herstellung nach Bedarf"
+      intro="Ob drehfest oder frei drehend, ob gedreht für kleine Losgrößen oder kaltgeprägt für die Serie – wir fertigen die passende Ausführung für Ihren Ventiltrieb."
+    />
+    <div class="grid gap-5 sm:grid-cols-2">
+      {variants.map((v) => <Card tag={v.tag} title={v.title} desc={v.desc} />)}
+    </div>
+  </Section>
+
+  <Section bg="ink">
+    <SectionHeading
+      dark
+      num="02"
+      eyebrow="Oberflächen"
+      title="Verschleißschutz an den Funktionsflächen"
+      intro="Damit die Kegelstücke Federkraft und Lastwechsel dauerhaft übertragen, behandeln wir ihre Funktionsflächen gezielt gegen Verschleiß."
+    />
+    <div class="grid gap-5 sm:grid-cols-2">
+      {surfaces.map((s, i) => <Card dark num={String(i + 1).padStart(2, '0')} title={s.title} desc={s.desc} />)}
+    </div>
+  </Section>
+
+  <Section bg="white">
+    <SectionHeading
+      num="03"
+      eyebrow="Passende Produkte"
+      title="Komponenten für die Ventilbefestigung"
+      intro="Ventilkegelstücke arbeiten im Verbund mit Federtellern und Drehvorrichtungen. Gerne stimmen wir die Komponenten aufeinander ab."
+    />
+    <ProductGrid
+      columns={2}
+      items={[
+        { title: 'Ventilfederteller', desc: 'Nehmen die Kegelstücke auf und übertragen die Federkraft.', href: '/ventilfederteller' },
+        { title: 'Ventildrehvorrichtungen', desc: 'Sorgen mit nicht-klemmenden Kegelstücken für gleichmäßige Ventilrotation.', href: '/ventildrehvorrichtungen' },
+      ]}
+    />
+  </Section>
+
+  <Section bg="cream">
+    <FAQSection
+      num="04"
+      eyebrow="FAQ"
+      title="Häufige Fragen zu Ventilkegelstücken"
+      intro="Funktion, Bauarten und Oberflächen der Ventilbefestigung – kurz erklärt."
+      items={faq}
+    />
+  </Section>
+
+  <CTABanner
+    title="Ventilkegelstücke nach Ihrer Spezifikation?"
+    text="Senden Sie uns Zeichnung oder Muster – wir fertigen klemmend oder nicht-klemmend, gedreht oder kaltgeprägt."
+  />
+</Layout>

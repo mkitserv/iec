@@ -1,0 +1,97 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import Section from '../components/Section.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import ProductGrid from '../components/ProductGrid.astro';
+import Card from '../components/Card.astro';
+import MaterialTable from '../components/MaterialTable.astro';
+import FeatureSplit from '../components/FeatureSplit.astro';
+import FAQSection from '../components/FAQSection.astro';
+import CTABanner from '../components/CTABanner.astro';
+
+const breadcrumbs = [
+  { name: 'Start', href: '/' },
+  { name: 'Motorenteile', href: '/motorenteile' },
+  { name: 'Ventilfedern', href: '/ventilfedern' },
+];
+
+const materials = [
+  { nr: 'EN 10270-2', name: 'Oteva 70 (VD-SiCr)', use: 'Vergüteter, vakuumgeschmolzener SiCr-Federstahldraht für dauerfeste Ventilfedern.' },
+];
+
+const variants = [
+  { title: 'Runddraht', desc: 'Klassischer runder Querschnitt – die bewährte Standardausführung für die meisten Anwendungen.' },
+  { title: 'Eierprofil / elliptisch', desc: 'Elliptischer Drahtquerschnitt – für eine optimierte Spannungsverteilung bei hoher Belastung.' },
+];
+
+const faq = [
+  { q: 'Welche Aufgabe hat die Ventilfeder?', a: 'Die Ventilfeder schließt das Ventil nach dem Öffnen durch Nockenwelle oder Aktuator wieder zuverlässig und hält es während des gesamten Hubverlaufs in Kontakt mit dem Ventiltrieb.' },
+  { q: 'Aus welchem Werkstoff fertigt IEC die Ventilfedern?', a: 'Wir verwenden Oteva 70, einen vakuumgeschmolzenen SiCr-Federstahldraht nach EN 10270-2 (VD-SiCr), der hohe Dauerfestigkeit und Setzbeständigkeit bietet.' },
+  { q: 'Welche Drahtquerschnitte sind möglich?', a: 'Die Ventilfedern sind sowohl mit rundem als auch mit elliptischem Drahtquerschnitt (Eierprofil) erhältlich – passend zu Ihrer Spezifikation.' },
+  { q: 'Fertigt IEC nach Zeichnung oder Muster?', a: 'Ja. Wir fertigen Ventilfedern nach Ihrer Zeichnung oder nach vorhandenem Muster – auch für Sonder- und Ersatzteilbedarf.' },
+];
+---
+<Layout
+  title="Ventilfedern aus Oteva 70 nach Zeichnung | IEC Germany"
+  description="Ventilfedern aus Oteva 70 (EN 10270-2 VD-SiCr) mit rundem oder elliptischem Drahtquerschnitt. Fertigung nach Zeichnung oder Muster – direkt vom Hersteller."
+  schemaType="Product"
+  schemaExtra={{ name: 'Ventilfedern', description: 'Ventilfedern aus Oteva 70 (EN 10270-2 VD-SiCr) mit rundem oder elliptischem Drahtquerschnitt, gefertigt nach Zeichnung oder Muster.' }}
+  breadcrumbs={breadcrumbs}
+  faq={faq}
+>
+  <Hero
+    eyebrow="Ventiltrieb · Ventilfedern"
+    title="Ventilfedern, die zuverlässig schließen"
+    highlight="zuverlässig"
+    subtitle="Dauerfeste Ventilfedern aus Oteva 70 – mit rundem oder elliptischem Drahtquerschnitt, gefertigt nach Ihrer Zeichnung oder Ihrem Muster."
+    badges={['Oteva 70', 'Rund & elliptisch', 'Nach Zeichnung', 'Made in Germany']}
+    primary={{ label: 'Jetzt anfragen', href: '/kontakt' }}
+    secondary={{ label: 'Werkstoff ansehen', href: '#werkstoff' }}
+    layout="centered"
+    breadcrumbs={breadcrumbs}
+  />
+
+  <Section bg="white">
+    <FeatureSplit
+      eyebrow="Funktion"
+      title="Sicheres Schließen über Millionen Lastzyklen"
+      body="Nachdem Nockenwelle oder Aktuator das Ventil geöffnet haben, sorgt die Ventilfeder dafür, dass es zuverlässig und spielfrei wieder schließt. Sie hält den Ventiltrieb in Kontakt und muss dabei dauerfest und setzbeständig sein."
+      bullets={[
+        'Zuverlässiger Ventilschluss nach jedem Hub',
+        'Hohe Dauerfestigkeit und Setzbeständigkeit',
+        'Fertigung nach Zeichnung oder Muster',
+      ]}
+      cta={{ label: 'Passende Ventile ansehen', href: '/ventile' }}
+    />
+  </Section>
+
+  <Section bg="ink" id="werkstoff">
+    <SectionHeading dark num="01" eyebrow="Werkstoff" title="Oteva 70 für dauerfeste Federn" intro="Als Drahtwerkstoff setzen wir auf vakuumgeschmolzenen SiCr-Federstahl nach EN 10270-2 – ausgelegt auf hohe Schwingspielzahlen." />
+    <MaterialTable rows={materials} caption="Werkstoffwahl und Auslegung erfolgen passend zu Ihrer Anwendung und Spezifikation." />
+  </Section>
+
+  <Section bg="cream">
+    <SectionHeading num="02" eyebrow="Ausführungen" title="Runder oder elliptischer Draht" intro="Je nach Belastung und Bauraum fertigen wir Ventilfedern mit unterschiedlichem Drahtquerschnitt." />
+    <div class="grid gap-5 sm:grid-cols-2">
+      {variants.map((v, i) => <Card num={String(i + 1).padStart(2, '0')} title={v.title} desc={v.desc} />)}
+    </div>
+  </Section>
+
+  <Section bg="white">
+    <SectionHeading num="03" eyebrow="Passende Komponenten" title="Komplett aus dem Ventiltrieb" intro="Ventilfedern kombinieren wir mit weiteren Komponenten des Ventiltriebs – alles aus einer Hand." />
+    <ProductGrid columns={2} items={[
+      { title: 'Ventile', desc: 'Voll- und Hohlventile aus martensitischen, austenitischen, Nickelbasis- und Titan-Werkstoffen.', href: '/ventile', tag: 'Ventiltrieb' },
+      { title: 'Ventilkegelstücke', desc: 'Klemmstücke zur sicheren Verbindung von Ventil und Federteller.', href: '/ventilkegelstuecke', tag: 'Ventiltrieb' },
+    ]} />
+  </Section>
+
+  <Section bg="cream">
+    <FAQSection num="04" eyebrow="FAQ" title="Häufige Fragen zu Ventilfedern" intro="Funktion, Werkstoff und Ausführungen – die wichtigsten Antworten für Konstrukteure und Einkäufer." items={faq} />
+  </Section>
+
+  <CTABanner
+    title="Ventilfedern nach Ihrer Spezifikation?"
+    text="Senden Sie uns Zeichnung oder Muster – wir fertigen Ventilfedern aus Oteva 70 nach Ihrem Bedarf."
+  />
+</Layout>

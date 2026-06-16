@@ -1,0 +1,122 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import Section from '../components/Section.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import ProductGrid from '../components/ProductGrid.astro';
+import Card from '../components/Card.astro';
+import FeatureSplit from '../components/FeatureSplit.astro';
+import FAQSection from '../components/FAQSection.astro';
+import CTABanner from '../components/CTABanner.astro';
+
+const breadcrumbs = [
+  { name: 'Start', href: '/' },
+  { name: 'Motorenteile', href: '/motorenteile' },
+  { name: 'Kolben & Kurbeltrieb', href: '/kolben-kurbeltrieb' },
+];
+
+const parts = [
+  { title: 'Kolben', desc: 'Übertragen den Verbrennungsdruck auf den Kurbeltrieb – gefertigt nach Ihrer Zeichnung oder Ihrem Muster.' },
+  { title: 'Kolbenringe', desc: 'Dichten den Brennraum gegen das Kurbelgehäuse ab und steuern den Ölhaushalt im Zylinder.' },
+  { title: 'Zylinderlaufbuchsen', desc: 'Bilden die verschleißfeste Lauffläche für den Kolben – als Einzelteil nach Vorlage gefertigt.' },
+  { title: 'Kolbenbolzen', desc: 'Verbinden Kolben und Pleuel und übertragen die Kräfte als bewegliches Gelenk.' },
+  { title: 'Kurbelwellen', desc: 'Wandeln die Hubbewegung der Kolben in die Drehbewegung der Welle um.' },
+  { title: 'Pleuelstangen', desc: 'Verbinden Kolben und Kurbelwelle und übertragen die Gaskräfte auf den Kurbelzapfen.' },
+];
+
+const faq = [
+  { q: 'Welche Komponenten des Kurbeltriebs fertigt IEC?', a: 'Wir fertigen die zentralen Bauteile des Kurbeltriebs: Kolben, Kolbenringe, Zylinderlaufbuchsen, Kolbenbolzen, Kurbelwellen und Pleuelstangen – jeweils nach Ihrer Zeichnung oder Ihrem Muster.' },
+  { q: 'Fertigt IEC auch nach Muster ohne Zeichnung?', a: 'Ja. Liegt keine Zeichnung vor, fertigen wir die Komponenten des Kurbeltriebs auch nach Ihrem Muster – etwa für Ersatzteile oder Bauteile, deren Unterlagen nicht mehr verfügbar sind.' },
+  { q: 'Erhalte ich Kolben und Pleuel aus einer Hand?', a: 'Ja. Sie erhalten die Bauteile des Kurbeltriebs gebündelt von IEC und müssen die Komponenten nicht bei verschiedenen Lieferanten zusammenstellen.' },
+];
+---
+
+<Layout
+  title="Kolben & Kurbeltrieb – Komponenten nach Zeichnung | IEC"
+  description="Kolben, Kolbenringe, Zylinderlaufbuchsen, Kolbenbolzen, Kurbelwellen und Pleuelstangen für Motoren – gefertigt nach Ihrer Zeichnung oder Ihrem Muster bei IEC Germany."
+  schemaType="Product"
+  breadcrumbs={breadcrumbs}
+  faq={faq}
+>
+  <Hero
+    layout="centered"
+    eyebrow="Motorenteile · Kurbeltrieb"
+    title="Kolben & Kurbeltrieb für jeden Motor"
+    highlight="Kurbeltrieb"
+    subtitle="Kolben, Kolbenringe, Zylinderlaufbuchsen, Kolbenbolzen, Kurbelwellen und Pleuelstangen – gefertigt nach Ihrer Zeichnung oder Ihrem Muster."
+    badges={['Nach Zeichnung', 'Nach Muster', 'Made in Germany']}
+    primary={{ label: 'Jetzt anfragen', href: '/kontakt' }}
+    breadcrumbs={breadcrumbs}
+  />
+
+  <Section bg="white">
+    <SectionHeading
+      num="01"
+      eyebrow="Komponenten"
+      title="Die Bauteile des Kurbeltriebs"
+      intro="Der Kurbeltrieb wandelt den Verbrennungsdruck in eine Drehbewegung um. Wir fertigen seine zentralen Komponenten als Einzelteile – nach Ihrer Zeichnung oder Ihrem Muster."
+    />
+    <ProductGrid items={parts} columns={3} />
+  </Section>
+
+  <Section bg="cream">
+    <FeatureSplit
+      eyebrow="Bewegliche Verbindung"
+      title="Kolbenbolzen & Pleuel als Kraftgelenk"
+      body="Der Kolbenbolzen verbindet Kolben und Pleuelstange zu einem beweglichen Gelenk und überträgt die Gaskräfte auf den Kurbeltrieb. Wir fertigen Kolbenbolzen, Pleuel und die zugehörigen Komponenten passend zu Ihrer Anwendung – nach Zeichnung oder Muster."
+      bullets={[
+        'Kolbenbolzen als Verbindung von Kolben und Pleuel',
+        'Pleuelstangen zur Übertragung auf den Kurbelzapfen',
+        'Fertigung nach Ihrer Zeichnung oder Ihrem Muster',
+      ]}
+      image={{ src: '/images/kolbenbolzen.jpg', alt: 'Kolbenbolzen für den Kurbeltrieb von IEC' }}
+      cta={{ label: 'Zu den Motorenteilen', href: '/motorenteile' }}
+    />
+  </Section>
+
+  <Section bg="ink">
+    <SectionHeading
+      dark
+      num="02"
+      eyebrow="Fertigung"
+      title="Nach Zeichnung oder Muster"
+      intro="Jedes Bauteil des Kurbeltriebs entsteht nach Ihren Vorgaben. Liegt keine Zeichnung vor, genügt ein Muster als Vorlage – ideal für Ersatz- und Sonderteile."
+    />
+    <div class="grid gap-5 sm:grid-cols-3">
+      <Card dark num="01" title="Nach Zeichnung" desc="Fertigung exakt nach Ihrer technischen Zeichnung und Spezifikation." />
+      <Card dark num="02" title="Nach Muster" desc="Kein Datensatz vorhanden? Wir fertigen die Komponente nach Ihrem Musterteil." />
+      <Card dark num="03" title="Aus einer Hand" desc="Mehrere Komponenten des Kurbeltriebs gebündelt von einem Lieferanten." />
+    </div>
+  </Section>
+
+  <Section bg="white">
+    <SectionHeading
+      num="03"
+      eyebrow="Verwandte Produkte"
+      title="Passende Komponenten"
+      intro="Den Kurbeltrieb ergänzen weitere Baugruppen aus unserem Motorenteile-Programm."
+    />
+    <ProductGrid
+      columns={2}
+      items={[
+        { title: 'Motorenteile', desc: 'Das gesamte Programm an Motorenkomponenten von IEC im Überblick.', href: '/motorenteile' },
+        { title: 'Nockenwellen & Zubehör', desc: 'Komponenten der Ventilsteuerung – passend zum Kurbeltrieb.', href: '/nockenwellen-zubehoer' },
+      ]}
+    />
+  </Section>
+
+  <Section bg="cream">
+    <FAQSection
+      num="04"
+      eyebrow="FAQ"
+      title="Häufige Fragen zum Kurbeltrieb"
+      intro="Komponenten, Fertigung und Lieferumfang – die wichtigsten Antworten auf einen Blick."
+      items={faq}
+    />
+  </Section>
+
+  <CTABanner
+    title="Komponenten für Ihren Kurbeltrieb?"
+    text="Senden Sie uns Zeichnung oder Muster – wir fertigen Kolben, Bolzen, Buchsen, Wellen und Pleuel nach Ihren Vorgaben."
+  />
+</Layout>

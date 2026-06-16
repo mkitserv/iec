@@ -1,0 +1,117 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import TrustBar from '../components/TrustBar.astro';
+import Section from '../components/Section.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import ProductGrid from '../components/ProductGrid.astro';
+import Card from '../components/Card.astro';
+import FeatureSplit from '../components/FeatureSplit.astro';
+import FAQSection from '../components/FAQSection.astro';
+import CTABanner from '../components/CTABanner.astro';
+import { usps } from '../lib/site';
+
+const breadcrumbs = [
+  { name: 'Start', href: '/' },
+  { name: 'Motorenteile', href: '/motorenteile' },
+  { name: 'Dichtungen', href: '/dichtungen' },
+];
+
+const faq = [
+  { q: 'Welche Dichtungen liefert IEC?', a: 'Wir liefern Zylinderkopfdichtungen sowie komplette Dichtsätze für Motoren. Gefertigt wird nach Ihrer Zeichnung oder nach Muster – auch in kleinen Stückzahlen.' },
+  { q: 'Kann IEC Dichtungen nach Muster fertigen?', a: 'Ja. Liegt kein Plan vor, fertigen wir Ihre Dichtung nach vorhandenem Muster. So lassen sich auch ältere oder nicht mehr verfügbare Motorendichtungen wieder beschaffen.' },
+  { q: 'Liefert IEC Dichtungen passend zu Zylinderköpfen?', a: 'Ja. Dichtungen lassen sich gemeinsam mit den passenden Zylinderköpfen und weiteren Motorenteilen aus einer Hand abstimmen – so passen Komponenten und Dichtsatz zusammen.' },
+];
+---
+
+<Layout
+  title="Zylinderkopfdichtungen & Dichtsätze nach Maß | IEC Germany"
+  description="Zylinderkopfdichtungen und komplette Dichtsätze von IEC – gefertigt nach Ihrer Zeichnung oder nach Muster, abgestimmt auf Zylinderköpfe und weitere Motorenteile."
+  schemaType="Product"
+  breadcrumbs={breadcrumbs}
+  faq={faq}
+>
+  <Hero
+    layout="centered"
+    eyebrow="Motorenteile · Dichtungen"
+    title="Dichtungen, die zuverlässig abdichten"
+    highlight="zuverlässig"
+    subtitle="Zylinderkopfdichtungen und komplette Dichtsätze – gefertigt nach Ihrer Zeichnung oder nach Muster, passend zu Ihren Zylinderköpfen und Motorenteilen."
+    badges={['Nach Zeichnung', 'Nach Muster', 'Komplette Dichtsätze']}
+    primary={{ label: 'Jetzt anfragen', href: '/kontakt' }}
+    breadcrumbs={breadcrumbs}
+  />
+
+  <TrustBar items={usps} />
+
+  <Section bg="white">
+    <SectionHeading
+      num="01"
+      eyebrow="Funktion"
+      title="Sichere Abdichtung im Verbrennungsraum"
+      intro="Die Dichtung trennt Brennraum, Kühl- und Ölkanäle zuverlässig voneinander und hält Verbrennungsdruck und Temperatur stand. Eine passgenaue Dichtung ist Voraussetzung für eine dauerhaft dichte Verbindung zwischen Zylinderkopf und Kurbelgehäuse."
+    />
+    <p class="reveal text-navy-light leading-relaxed max-w-3xl">
+      IEC liefert Zylinderkopfdichtungen und komplette Dichtsätze für Motoren – einzeln oder als abgestimmtes Paket. Wir fertigen nach Ihrer Zeichnung oder nach vorhandenem Muster, sodass sich auch ältere oder nicht mehr verfügbare Dichtungen wieder beschaffen lassen. Passend dazu stimmen wir die Dichtungen mit den zugehörigen <a href="/zylinderkoepfe-kurbelgehaeuse" class="text-blue underline underline-offset-2">Zylinderköpfen und Kurbelgehäusen</a> ab.
+    </p>
+  </Section>
+
+  <Section bg="ink">
+    <SectionHeading
+      dark
+      num="02"
+      eyebrow="Lieferumfang"
+      title="Einzeldichtung oder kompletter Dichtsatz"
+      intro="Sie erhalten genau das, was Ihr Projekt braucht – von der einzelnen Zylinderkopfdichtung bis zum vollständigen Dichtsatz für die Motorrevision."
+    />
+    <div class="reveal grid sm:grid-cols-2 gap-5 mt-10">
+      <Card dark title="Zylinderkopfdichtungen" desc="Abdichtung zwischen Zylinderkopf und Kurbelgehäuse – gefertigt nach Zeichnung oder Muster." />
+      <Card dark title="Komplette Dichtsätze" desc="Abgestimmte Dichtungen für die Motorrevision aus einer Hand." />
+    </div>
+  </Section>
+
+  <Section bg="cream">
+    <FeatureSplit
+      eyebrow="Fertigung"
+      title="Nach Zeichnung oder nach Muster"
+      body="Liegt eine Zeichnung vor, fertigen wir danach. Ist kein Plan verfügbar, dient Ihr Muster als Vorlage. So lassen sich auch Dichtungen für ältere oder seltene Motoren wieder beschaffen."
+      bullets={[
+        'Fertigung nach Ihrer Zeichnung',
+        'Fertigung nach vorhandenem Muster',
+        'Auch in kleinen Stückzahlen',
+      ]}
+      cta={{ label: 'Zu den Zylinderköpfen', href: '/zylinderkoepfe-kurbelgehaeuse' }}
+    />
+  </Section>
+
+  <Section bg="white">
+    <SectionHeading
+      num="03"
+      eyebrow="Passende Produkte"
+      title="Weitere Motorenteile"
+      intro="Dichtungen lassen sich mit den zugehörigen Komponenten aus einer Hand abstimmen – so passen Bauteile und Dichtsatz zusammen."
+    />
+    <ProductGrid
+      columns={2}
+      items={[
+        { title: 'Zylinderköpfe & Kurbelgehäuse', desc: 'Passend abgestimmt zu Ihren Dichtungen.', href: '/zylinderkoepfe-kurbelgehaeuse' },
+        { title: 'Motorenteile im Überblick', desc: 'Das gesamte Komponentenspektrum von IEC.', href: '/motorenteile' },
+      ]}
+    />
+  </Section>
+
+  <Section bg="cream">
+    <FAQSection
+      num="04"
+      eyebrow="FAQ"
+      title="Häufige Fragen zu Dichtungen"
+      intro="Lieferumfang, Fertigung nach Muster und Abstimmung mit weiteren Motorenteilen – kurz erklärt."
+      items={faq}
+    />
+  </Section>
+
+  <CTABanner
+    title="Dichtung oder Dichtsatz nach Maß?"
+    text="Senden Sie uns Zeichnung oder Muster – wir fertigen passend, auch in kleinen Stückzahlen."
+  />
+</Layout>

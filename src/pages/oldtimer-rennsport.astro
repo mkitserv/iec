@@ -1,0 +1,104 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import TrustBar from '../components/TrustBar.astro';
+import Section from '../components/Section.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import ProductGrid from '../components/ProductGrid.astro';
+import Card from '../components/Card.astro';
+import FeatureSplit from '../components/FeatureSplit.astro';
+import FAQSection from '../components/FAQSection.astro';
+import CTABanner from '../components/CTABanner.astro';
+import { usps } from '../lib/site';
+
+const breadcrumbs = [
+  { name: 'Start', href: '/' },
+  { name: 'Oldtimer & Rennsport', href: '/oldtimer-rennsport' },
+];
+
+const faq = [
+  { q: 'Fertigt IEC auch einzelne Ventile für Oldtimer?', a: 'Ja. Wir fertigen ab 1 Stück nach Original, Zeichnung oder Muster. So lassen sich Ventile für Traktoren, PKW und Motorräder auch dann beschaffen, wenn kein Ersatzteil mehr lieferbar ist.' },
+  { q: 'Was eignet sich für hochdrehende und leichtbauorientierte Motoren?', a: 'Für Leichtbau und hochdrehende Motoren fertigen wir Titan-Ventile aus TiAl6V4. Der Werkstoff reduziert die bewegte Masse im Ventiltrieb und ist damit besonders für den Rennsport interessant.' },
+  { q: 'Reicht ein vorhandenes Muster als Vorlage?', a: 'Ja. Liegt keine Zeichnung vor, genügt ein vorhandenes Muster als Vorlage. Auch das Original-Bauteil können wir als Referenz für die Nachfertigung verwenden.' },
+];
+---
+
+<Layout
+  title="Ventile für Oldtimer & Rennsport ab 1 Stück | IEC Germany"
+  description="Ventile für Oldtimer und Rennsport: Nachfertigung ab 1 Stück nach Original, Zeichnung oder Muster für Traktoren, PKW und Motorräder – Titan-Ventile aus TiAl6V4."
+  breadcrumbs={breadcrumbs}
+  faq={faq}
+>
+  <Hero
+    layout="centered"
+    eyebrow="Anwendung · Oldtimer & Rennsport"
+    title="Ventile, wenn es kein Ersatzteil mehr gibt"
+    highlight="kein Ersatzteil"
+    subtitle="Für Oldtimer und Rennsport fertigen wir ab 1 Stück nach Original, Zeichnung oder Muster – für Traktoren, PKW und Motorräder. Für Leichtbau und hochdrehende Motoren auch in Titan."
+    badges={['Ab 1 Stück', 'Nach Original', 'Titan TiAl6V4']}
+    primary={{ label: 'Jetzt anfragen', href: '/kontakt' }}
+    breadcrumbs={breadcrumbs}
+  />
+
+  <TrustBar items={usps} />
+
+  <Section bg="white">
+    <FeatureSplit
+      eyebrow="Nachfertigung"
+      title="Ab 1 Stück nach Original, Zeichnung oder Muster"
+      body="Für klassische Fahrzeuge und den Motorsport sind passende Ventile oft nicht mehr lieferbar. Wir fertigen sie für Sie neu – ab dem ersten Stück, für Traktoren, PKW und Motorräder. Als Vorlage genügt das Original-Bauteil, eine Zeichnung oder ein vorhandenes Muster."
+      bullets={[
+        'Fertigung ab 1 Stück – auch Einzelanfertigung',
+        'Vorlage: Original, Zeichnung oder Muster',
+        'Für Traktoren, PKW und Motorräder',
+      ]}
+      image={{ src: '/images/hohlventile.jpg', alt: 'Nachgefertigte Ventile von IEC für Oldtimer und Rennsport' }}
+      cta={{ label: 'Zu den Ventilen', href: '/ventile' }}
+    />
+  </Section>
+
+  <Section bg="ink">
+    <SectionHeading
+      dark
+      num="01"
+      eyebrow="Rennsport"
+      title="Titan-Ventile für hochdrehende Motoren"
+      intro="Im Rennsport und bei leichtbauorientierten Motoren zählt jede bewegte Masse im Ventiltrieb. Dafür fertigen wir Ventile aus Titan."
+    />
+    <div class="reveal grid sm:grid-cols-2 gap-5 mt-10">
+      <Card dark title="Werkstoff TiAl6V4" desc="Titanlegierung für leichte Ventile mit reduzierter bewegter Masse im Ventiltrieb." />
+      <Card dark title="Für hochdrehende Motoren" desc="Geeignet für Leichtbau und hochdrehende Motoren – typische Anforderung im Rennsport." />
+    </div>
+  </Section>
+
+  <Section bg="cream">
+    <SectionHeading
+      num="02"
+      eyebrow="Passende Produkte"
+      title="Verwandte Komponenten"
+      intro="Über das einzelne Ventil hinaus fertigen wir weitere Motorenteile nach Ihrer Vorlage. Gerne beraten wir Sie zur passenden Auslegung für Ihr Fahrzeug."
+    />
+    <ProductGrid
+      columns={2}
+      items={[
+        { title: 'Ventile', desc: 'Voll- und Hohlventile sowie Titan-Ventile nach Zeichnung oder Muster.', href: '/ventile' },
+        { title: 'Motorenteile', desc: 'Weitere Ventiltriebs- und Motorenkomponenten aus einer Hand.', href: '/motorenteile' },
+      ]}
+    />
+  </Section>
+
+  <Section bg="white">
+    <FAQSection
+      num="03"
+      eyebrow="FAQ"
+      title="Häufige Fragen zu Oldtimer & Rennsport"
+      intro="Nachfertigung, Vorlagen und Titan-Ventile – die wichtigsten Antworten für Restaurierung und Motorsport."
+      items={faq}
+    />
+  </Section>
+
+  <CTABanner
+    title="Ventil für Ihren Klassiker oder Rennmotor?"
+    text="Senden Sie uns Original, Zeichnung oder Muster – Fertigung ab 1 Stück, auf Wunsch in Titan."
+  />
+</Layout>

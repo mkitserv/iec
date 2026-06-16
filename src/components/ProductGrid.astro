@@ -5,7 +5,7 @@ interface Props { items: Item[]; columns?: 2 | 3 }
 const { items, columns = 3 } = Astro.props;
 const colClass = columns === 2 ? 'sm:grid-cols-2' : 'sm:grid-cols-2 lg:grid-cols-3';
 ---
-<div class={`grid gap-5 ${colClass}`}>
+<div data-stagger class={`grid gap-5 ${colClass}`}>
   {items.map((item) => (
     <Card title={item.title} desc={item.desc} href={item.href} tag={item.tag} />
   ))}

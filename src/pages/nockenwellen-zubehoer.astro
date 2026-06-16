@@ -1,0 +1,107 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import Section from '../components/Section.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import ProductGrid from '../components/ProductGrid.astro';
+import Card from '../components/Card.astro';
+import FeatureSplit from '../components/FeatureSplit.astro';
+import FAQSection from '../components/FAQSection.astro';
+import CTABanner from '../components/CTABanner.astro';
+
+const breadcrumbs = [
+  { name: 'Start', href: '/' },
+  { name: 'Motorenteile', href: '/motorenteile' },
+  { name: 'Nockenwellen & Zubehör', href: '/nockenwellen-zubehoer' },
+];
+
+const components = [
+  { title: 'Nockenwellen', desc: 'Steuern über ihre Nockenkontur die Öffnungszeiten und Hübe der Ventile – gefertigt nach Ihrer Zeichnung oder Ihrem Muster.' },
+  { title: 'Stößel', desc: 'Übertragen die Bewegung der Nocke auf den weiteren Ventiltrieb – als Bauteil im Zubehörprogramm.' },
+  { title: 'Kipphebel', desc: 'Lenken die Hubbewegung auf das Ventil um – ergänzen Nockenwelle und Stößel zum vollständigen Ventiltrieb.' },
+];
+
+const faq = [
+  { q: 'Fertigt IEC Nockenwellen nach Muster?', a: 'Ja. Wir fertigen Nockenwellen nach Ihrer Zeichnung oder nach einem vorhandenen Muster – auch dann, wenn keine vollständigen Unterlagen mehr verfügbar sind.' },
+  { q: 'Welches Zubehör zur Nockenwelle bietet IEC an?', a: 'Neben der Nockenwelle selbst fertigen wir das zugehörige Zubehör wie Stößel und Kipphebel, sodass Sie zusammengehörige Komponenten des Ventiltriebs aus einer Hand erhalten.' },
+  { q: 'Passt das Nockenwellen-Zubehör zu meinem bestehenden Ventiltrieb?', a: 'Wir fertigen nach Zeichnung oder Muster und stimmen die Bauteile auf Ihren konkreten Motor ab. So fügen sich Nockenwelle, Stößel und Kipphebel in Ihren vorhandenen Ventiltrieb ein.' },
+];
+---
+
+<Layout
+  title="Nockenwellen & Zubehör nach Zeichnung | IEC Germany"
+  description="Nockenwellen sowie Zubehör wie Stößel und Kipphebel von IEC – gefertigt nach Ihrer Zeichnung oder nach Muster. Zusammengehörige Ventiltrieb-Komponenten aus einer Hand."
+  schemaType="Product"
+  breadcrumbs={breadcrumbs}
+  faq={faq}
+>
+  <Hero
+    layout="centered"
+    eyebrow="Motorenteile · Nockenwellen"
+    title="Nockenwellen & Zubehör nach Zeichnung oder Muster"
+    highlight="nach Zeichnung oder Muster"
+    subtitle="IEC fertigt Nockenwellen sowie passendes Zubehör wie Stößel und Kipphebel – zusammengehörige Komponenten des Ventiltriebs aus einer Hand."
+    badges={['Nach Zeichnung', 'Nach Muster', 'Made in Germany']}
+    primary={{ label: 'Jetzt anfragen', href: '/kontakt' }}
+    breadcrumbs={breadcrumbs}
+  />
+
+  <Section bg="white">
+    <FeatureSplit
+      eyebrow="Funktion"
+      title="Das Herz der Ventilsteuerung"
+      body="Die Nockenwelle steuert über ihre Nockenkontur, wann und wie weit die Ventile öffnen. Stößel und Kipphebel übertragen diese Bewegung auf den Ventiltrieb. Wir fertigen Nockenwelle und Zubehör nach Ihrer Zeichnung oder nach Muster – als zusammengehörige Komponenten aus einer Hand."
+      bullets={[
+        'Nockenwellen für die Ventilsteuerung',
+        'Zubehör wie Stößel und Kipphebel',
+        'Fertigung nach Zeichnung oder Muster',
+      ]}
+      image={{ src: '/images/nockenwellen.jpg', alt: 'Nockenwellen von IEC, gefertigt nach Zeichnung oder Muster' }}
+      cta={{ label: 'Zum Kolben- & Kurbeltrieb', href: '/kolben-kurbeltrieb' }}
+    />
+  </Section>
+
+  <Section bg="ink">
+    <SectionHeading
+      dark
+      num="01"
+      eyebrow="Komponenten"
+      title="Nockenwelle, Stößel & Kipphebel"
+      intro="Drei zusammengehörige Bauteile des Ventiltriebs – einzeln oder gemeinsam, jeweils nach Ihrer Zeichnung oder Ihrem Muster gefertigt."
+    />
+    <div class="grid gap-5 sm:grid-cols-3">
+      {components.map((c, i) => <Card dark num={String(i + 1).padStart(2, '0')} title={c.title} desc={c.desc} />)}
+    </div>
+  </Section>
+
+  <Section bg="cream">
+    <SectionHeading
+      num="02"
+      eyebrow="Passende Produkte"
+      title="Verwandte Komponenten"
+      intro="Nockenwellen und ihr Zubehör fügen sich in das übrige Motorenteile-Programm von IEC ein – gerne stimmen wir die Auslegung auf Ihren Motor ab."
+    />
+    <ProductGrid
+      columns={2}
+      items={[
+        { title: 'Kolben- & Kurbeltrieb', desc: 'Komponenten des Kurbeltriebs aus IEC-Fertigung.', href: '/kolben-kurbeltrieb' },
+        { title: 'Motorenteile', desc: 'Das gesamte Programm an Motorenkomponenten von IEC.', href: '/motorenteile' },
+      ]}
+    />
+  </Section>
+
+  <Section bg="white">
+    <FAQSection
+      num="03"
+      eyebrow="FAQ"
+      title="Häufige Fragen zu Nockenwellen & Zubehör"
+      intro="Fertigung nach Zeichnung oder Muster, Zubehör und Abstimmung auf Ihren Ventiltrieb – kurz beantwortet."
+      items={faq}
+    />
+  </Section>
+
+  <CTABanner
+    title="Nockenwelle nach Ihrer Spezifikation?"
+    text="Senden Sie uns Zeichnung oder Muster – inklusive passendem Zubehör wie Stößel und Kipphebel."
+  />
+</Layout>

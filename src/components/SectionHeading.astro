@@ -15,6 +15,6 @@ const alignClass = align === 'center' ? 'text-center mx-auto items-center' : '';
     {num && <span class="section-num">{num}</span>}
     {eyebrow && <p class={`eyebrow ${dark ? 'eyebrow-light' : ''}`}>{eyebrow}</p>}
   </div>
-  <h2 class={`mt-4 text-3xl md:text-[2.7rem] leading-[1.06] tracking-tight ${dark ? 'text-white' : 'text-navy'}`}>{title}</h2>
+  <h2 class={`mt-4 h-1 ${dark ? 'text-white' : 'text-navy'}`}>{title}</h2>
   {intro && <p class={`mt-5 text-lg leading-relaxed ${dark ? 'text-white/65' : 'text-navy-light'}`}>{intro}</p>}
 </div>

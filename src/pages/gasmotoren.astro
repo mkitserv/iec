@@ -1,0 +1,114 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import TrustBar from '../components/TrustBar.astro';
+import Section from '../components/Section.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import ProductGrid from '../components/ProductGrid.astro';
+import Card from '../components/Card.astro';
+import FeatureSplit from '../components/FeatureSplit.astro';
+import FAQSection from '../components/FAQSection.astro';
+import CTABanner from '../components/CTABanner.astro';
+import { usps } from '../lib/site';
+
+const breadcrumbs = [
+  { name: 'Start', href: '/' },
+  { name: 'Gasmotoren', href: '/gasmotoren' },
+];
+
+const faq = [
+  { q: 'Welche Komponenten liefert IEC für Gasmotoren?', a: 'Wir liefern komplette, aufeinander abgestimmte Ventiltriebssätze für Gasmotoren aus einer Hand – Ventile, Ventilführungen und Ventilsitzringe als System. Statt Einzelteile aus verschiedenen Quellen zusammenzustellen, erhalten Sie eine durchgängig abgestimmte Werkstoff- und Oberflächenkombination.' },
+  { q: 'Was zeichnet das Sintermaterial IEC120S aus?', a: 'IEC120S ist ein bewährtes Sintermaterial, das wir unter anderem für Ventilführungen in Gasmotoren einsetzen. Es ist auf die besonderen Anforderungen des Gasmotorenbetriebs ausgelegt und Bestandteil unserer abgestimmten Ventiltriebssätze.' },
+  { q: 'Eignen sich die Komponenten auch für Biogasmotoren?', a: 'Ja. Gasmotoren zur Energieerzeugung aus Erdgas und Biogasmotoren sind eng verwandt. Für den Betrieb mit Biogas, Deponie- und Klärgas haben wir eine spezielle Anwendungsseite – Details finden Sie unter Biogasanlagen.' },
+];
+---
+
+<Layout
+  title="Komponenten für Gasmotoren zur Energieerzeugung | IEC"
+  description="Komplette Ventiltriebssätze für Gasmotoren zur Energieerzeugung aus Erdgas: Ventile, Führungen aus IEC120S und Sitzringe – abgestimmt aus einer Hand bei IEC."
+  breadcrumbs={breadcrumbs}
+  faq={faq}
+>
+  <Hero
+    layout="centered"
+    eyebrow="Anwendung · Gasmotoren"
+    title="Ventiltriebssätze für die Energieerzeugung aus Erdgas"
+    highlight="Energieerzeugung"
+    subtitle="Gasmotoren erzeugen aus Erdgas zuverlässig Strom und Wärme. IEC liefert komplette, aufeinander abgestimmte Ventiltriebssätze für diesen Dauerbetrieb."
+    badges={['IEC120S', 'Komplette Sätze', 'Aus einer Hand']}
+    primary={{ label: 'Jetzt anfragen', href: '/kontakt' }}
+    breadcrumbs={breadcrumbs}
+  />
+
+  <TrustBar items={usps} />
+
+  <Section bg="white">
+    <SectionHeading
+      num="01"
+      eyebrow="Anwendung"
+      title="Gasmotoren in der Energieerzeugung"
+      intro="Gasmotoren wandeln Erdgas in einem stationären Dauerbetrieb in Strom und Wärme um. Der Ventiltrieb läuft dabei über sehr viele Betriebsstunden – entscheidend ist eine Werkstoff- und Oberflächenwahl, die diesem Dauereinsatz standhält."
+    />
+    <p class="reveal text-navy-light leading-relaxed max-w-3xl">
+      Für Gasmotoren liefert IEC komplette, aufeinander abgestimmte Ventiltriebssätze. Statt Ventil, Führung und Sitzring einzeln aus verschiedenen Quellen zu beziehen, erhalten Sie das gesamte System aus einer Hand – mit Komponenten, deren Werkstoffe und Oberflächen gemeinsam ausgelegt sind. Für die Ventilführungen kommt unter anderem das bewährte Sintermaterial IEC120S zum Einsatz. Eng verwandt ist der Einsatz in <a href="/biogasanlagen" class="text-blue-700 underline underline-offset-2">Biogasanlagen</a> sowie in <a href="/industriemotoren-marine" class="text-blue-700 underline underline-offset-2">Industriemotoren</a>.
+    </p>
+  </Section>
+
+  <Section bg="cream">
+    <FeatureSplit
+      eyebrow="Komplettlösung"
+      title="Komplette Ventiltriebssätze aus einer Hand"
+      body="Sie erhalten den kompletten, aufeinander abgestimmten Ventiltriebssatz für Ihren Gasmotor. Werkstoffe und Oberflächen werden gemeinsam ausgelegt, sodass Ventil, Führung und Sitzring als System zusammenwirken. Gefertigt nach Ihrer Zeichnung oder nach Muster."
+      bullets={['Ventile, Führungen und Sitzringe abgestimmt', 'Ventilführungen aus Sintermaterial IEC120S', 'Fertigung nach Zeichnung oder Muster']}
+      image={{ src: '/images/ventiltrieb.jpg', alt: 'Kompletter, aufeinander abgestimmter Ventiltriebssatz von IEC für Gasmotoren' }}
+      cta={{ label: 'Zu den Ventilen', href: '/ventile' }}
+    />
+  </Section>
+
+  <Section bg="ink">
+    <SectionHeading
+      dark
+      num="02"
+      eyebrow="Bausteine"
+      title="Abgestimmt auf den Dauerbetrieb"
+      intro="Drei Komponenten bilden den Kern des Ventiltriebs im Gasmotor. Wir stimmen sie als System aufeinander ab – für lange Standzeiten im stationären Dauereinsatz."
+    />
+    <div class="reveal grid sm:grid-cols-3 gap-5 mt-10">
+      <Card dark num="01" title="Ventile" desc="Gaswechselventile, abgestimmt auf den Dauerbetrieb des Gasmotors – nach Zeichnung oder Muster." />
+      <Card dark num="02" title="Ventilführungen" desc="Aus dem bewährten Sintermaterial IEC120S für den Einsatz im Gasmotor." />
+      <Card dark num="03" title="Ventilsitzringe" desc="Als Teil des abgestimmten Ventiltriebssatzes für lange Standzeiten." />
+    </div>
+  </Section>
+
+  <Section bg="white">
+    <SectionHeading
+      num="03"
+      eyebrow="Passende Produkte"
+      title="Verwandte Komponenten & Anwendungen"
+      intro="Diese Produkte und Anwendungen sind für Gasmotoren besonders relevant. Gerne stimmen wir die Auslegung auf Ihren konkreten Motor ab."
+    />
+    <ProductGrid
+      columns={3}
+      items={[
+        { title: 'Ventile', desc: 'Gaswechselventile nach Zeichnung oder Muster.', href: '/ventile' },
+        { title: 'Ventilführungen', desc: 'Sintermaterial IEC120S für Gasmotoren.', href: '/ventilfuehrungen' },
+        { title: 'Biogasanlagen', desc: 'Verwandte Anwendung mit Biogas, Deponie- und Klärgas.', href: '/biogasanlagen' },
+      ]}
+    />
+  </Section>
+
+  <Section bg="cream">
+    <FAQSection
+      num="04"
+      eyebrow="FAQ"
+      title="Häufige Fragen zu Gasmotoren"
+      intro="Komponenten, Werkstoffe und der Bezug zu verwandten Anwendungen – kurz erklärt."
+      items={faq}
+    />
+  </Section>
+
+  <CTABanner
+    title="Ventiltrieb für Ihren Gasmotor?"
+    text="Wir beraten Sie zur Auslegung des kompletten Ventiltriebssatzes – nach Zeichnung oder Muster."
+  />
+</Layout>
