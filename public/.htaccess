@@ -1,0 +1,11 @@
+# Verhindert „verbuggte" Ansichten nach Deploys durch veralteten Browser-Cache:
+# HTML wird nie hart gecacht (immer frisch validiert), damit es nie auf
+# gelöschte (alte) Asset-Hashes verweist. Gehashte Assets dürfen lange leben.
+<IfModule mod_headers.c>
+  <FilesMatch "\.html$">
+    Header set Cache-Control "no-cache, must-revalidate"
+  </FilesMatch>
+  <FilesMatch "\.(css|js|woff2|woff)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+</IfModule>
