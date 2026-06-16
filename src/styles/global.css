@@ -77,10 +77,10 @@
 
   /* Verbindliche Typo-Skala — eine klare Treppe: Display > H1 > H2 > H3.
      Alle Headlines nutzen NUR diese Stufen, keine ad-hoc text-[…rem] mehr. */
-  .h-display { font-family: var(--font-display); font-weight: 700; line-height: 1.05; letter-spacing: -0.025em; font-size: clamp(1.8rem, 5.2vw, 3.4rem); }
-  .h-1       { font-family: var(--font-display); font-weight: 600; line-height: 1.07; letter-spacing: -0.02em;  font-size: clamp(2rem, 3.4vw, 2.7rem); }
-  .h-2       { font-family: var(--font-display); font-weight: 600; line-height: 1.12; letter-spacing: -0.015em; font-size: clamp(1.5rem, 2.2vw, 1.9rem); }
-  .h-3       { font-family: var(--font-display); font-weight: 600; line-height: 1.25; letter-spacing: -0.01em;  font-size: 1.125rem; }
+  .hl-display { font-family: var(--font-display); font-weight: 700; line-height: 1.05; letter-spacing: -0.025em; font-size: clamp(1.8rem, 5.2vw, 3.4rem); }
+  .hl-1       { font-family: var(--font-display); font-weight: 600; line-height: 1.07; letter-spacing: -0.02em;  font-size: clamp(2rem, 3.4vw, 2.7rem); }
+  .hl-2       { font-family: var(--font-display); font-weight: 600; line-height: 1.12; letter-spacing: -0.015em; font-size: clamp(1.5rem, 2.2vw, 1.9rem); }
+  .hl-3       { font-family: var(--font-display); font-weight: 600; line-height: 1.25; letter-spacing: -0.01em;  font-size: 1.125rem; }
 
   /* Buttons */
   .btn {

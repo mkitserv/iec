@@ -7,7 +7,7 @@ const { steps, dark = false } = Astro.props;
   {steps.map((s, i) => (
     <li class={`reveal relative p-7 ${dark ? 'bg-ink/60 text-white/70' : 'bg-white'}`}>
       <span class="font-mono text-sm text-blue">{String(i + 1).padStart(2, '0')}</span>
-      <h3 class={`mt-4 h-3 ${dark ? 'text-white' : 'text-navy'}`}>{s.title}</h3>
+      <h3 class={`mt-4 hl-3 ${dark ? 'text-white' : 'text-navy'}`}>{s.title}</h3>
       <p class={`mt-2 text-sm leading-relaxed ${dark ? 'text-white/60' : 'text-navy-light'}`}>{s.desc}</p>
     </li>
   ))}
